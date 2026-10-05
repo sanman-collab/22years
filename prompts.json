@@ -1,0 +1,459 @@
+{
+  "decisions": {
+    "organise": {
+      "section": "BEFORE ANY WORK · CHOOSING WHO BUILDS IT",
+      "lead": "The plot is yours and the money is arranged. Nothing has been dug. Everyone you know has told you a different way to do this.",
+      "asker": "Your own call",
+      "prompt": "Who runs this build?",
+      "options": [
+        {
+          "id": "maistri",
+          "label": "A maistry I know. He built my cousin's place.",
+          "note": "Cheapest and quickest. Nothing written down anywhere."
+        },
+        {
+          "id": "contractor",
+          "label": "A contractor, fixed price, he handles everything",
+          "note": "One number, one man to chase. He picks the details."
+        },
+        {
+          "id": "professional",
+          "label": "An architect and an engineer first, then a contractor",
+          "note": "Fees and weeks lost. Someone owns the drawing."
+        }
+      ]
+    },
+    "location": {
+      "section": "BEFORE THE DIG · PEGGING OUT THE PLOT",
+      "lead": "The house footprint is marked on the ground in lime. The tank has to sit somewhere in what is left over, and digging starts this week.",
+      "asker": "Your maistry asks",
+      "prompt": "Where does the tank go?",
+      "options": [
+        {
+          "id": "vastu",
+          "label": "Where vastu allows. Southwest is out, so the northwest corner.",
+          "note": "The family agrees. A tanker may not reach that corner."
+        },
+        {
+          "id": "behind",
+          "label": "Behind the house, out of sight",
+          "note": "Nothing on show in front. The hose comes past the kitchen."
+        },
+        {
+          "id": "gate",
+          "label": "Near the gate, where a tanker can reach",
+          "note": "A tanker can stand and pump. It sits by your entrance."
+        }
+      ]
+    },
+    "budget_cut": {
+      "section": "QUOTE IN HAND · BEFORE WORK STARTS",
+      "lead": "The contractor's final figure came in ₹1.2 lakh over what you have. He wants an answer tomorrow so his material order can go in.",
+      "asker": "Your contractor asks",
+      "prompt": "What comes out?",
+      "options": [
+        {
+          "id": "tank",
+          "label": "The septic tank. Build it plain, nobody ever sees it.",
+          "note": "Finds the money at once. The detailing goes with it."
+        },
+        {
+          "id": "finish",
+          "label": "The stone cladding on the street face of the house",
+          "note": "Saves the same amount. The house stays plain in front."
+        },
+        {
+          "id": "delay",
+          "label": "Nothing. Move in two months later and find the money.",
+          "note": "You keep the whole build. Two more months of waiting."
+        }
+      ]
+    },
+    "tanktype": {
+      "section": "PIT DUG · BEFORE THE WALLS GO UP",
+      "lead": "The hole is open and the sides are square. What goes in now decides how often this tank has to be opened, and how big the opening can be.",
+      "asker": "Your maistry asks",
+      "prompt": "What do we build it out of?",
+      "options": [
+        {
+          "id": "rings",
+          "label": "Ready-made concrete rings, dropped in. Done by evening.",
+          "note": "Fastest and cheapest. The ring width sets the opening."
+        },
+        {
+          "id": "well",
+          "label": "Stone-lined, like an old well",
+          "note": "Local stone, local hands. Rough inside, no divider."
+        },
+        {
+          "id": "brick",
+          "label": "Brick-lined, plastered smooth inside",
+          "note": "A week more work. Smooth walls, still one chamber."
+        },
+        {
+          "id": "twochamber",
+          "label": "Two chambers, split by a wall inside, as IS 2470 asks for",
+          "note": "Costs more. Solids settle, so emptying comes less often."
+        }
+      ]
+    },
+    "openings": {
+      "section": "WALLS UP · CLOSING THE TOP",
+      "lead": "The tank walls are finished and the top gets cast this week. Whatever opening you leave now is the only way in for the next twenty years, because concrete sets once.",
+      "asker": "Your maistry asks",
+      "prompt": "How do we close the top?",
+      "options": [
+        {
+          "id": "flush",
+          "label": "One solid slab, sealed over the whole tank",
+          "note": "Cleanest finish in the yard. Getting in means breaking it."
+        },
+        {
+          "id": "small",
+          "label": "One small opening, about 1½ ft across, plastered shut after",
+          "note": "Cheap, and no child falls in. An arm's width to work in."
+        },
+        {
+          "id": "covers",
+          "label": "Two covers, 2×2 ft, sitting at ground level",
+          "note": "₹4,000–8,000 more. A hose and rake reach in from above."
+        }
+      ]
+    },
+    "vent": {
+      "section": "SAME POUR · THE PIPE OFF THE TOP",
+      "lead": "The covers are going in tomorrow. A vent is a pipe off the top of the tank: the gas inside goes up it and air comes in behind. Nothing on your drawing mentions one.",
+      "asker": "Your maistry asks",
+      "prompt": "And the vent pipe?",
+      "options": [
+        {
+          "id": "none",
+          "label": "Skip it. Nobody ever asks for one.",
+          "note": "Saves a few thousand. The gas stays where it is."
+        },
+        {
+          "id": "short",
+          "label": "A short pipe, hidden behind the roof wall",
+          "note": "Invisible from the road. It lets go at head height."
+        },
+        {
+          "id": "proper",
+          "label": "Full height, above the roof, with a hood against rain",
+          "note": "₹1,500–3,000 of pipe. A pipe visible above the roof."
+        }
+      ]
+    },
+    "effluent": {
+      "section": "TANK CLOSED · THE OUTLET END",
+      "lead": "A pipe leaves the far end of the tank. What runs out of it is toilet water with the solids settled out of it, nothing cleaner than that. This is not rainwater and it has to go somewhere.",
+      "asker": "Your plumber asks",
+      "prompt": "Where does that pipe go?",
+      "options": [
+        {
+          "id": "storm",
+          "label": "Into the storm drain out front",
+          "note": "Costs nothing today. It runs open past your gate."
+        },
+        {
+          "id": "soak",
+          "label": "A soak pit beside the tank, a hole for it to seep away in",
+          "note": "Small and quick to dig. Blocks up if it is undersized."
+        },
+        {
+          "id": "dispersion",
+          "label": "A long gravel trench, sized to the soil, to seep away slowly",
+          "note": "₹15,000–30,000 and plot space. The soil does the work."
+        }
+      ]
+    },
+    "drawing": {
+      "section": "DRAWING STAGE · BEFORE SUBMISSION",
+      "lead": "The sanction set goes to the authority next week. The floor plans and elevations are finished. On the site plan the tank is still a blank rectangle.",
+      "asker": "Your draughtsman asks",
+      "prompt": "What do we show for the tank?",
+      "options": [
+        {
+          "id": "st",
+          "label": "'ST' and a rectangle. Everyone knows what that means.",
+          "note": "Approved fastest. Nothing in it can be checked or priced."
+        },
+        {
+          "id": "detail",
+          "label": "A full cross-section: chambers, cover sizes, vent, pipe levels in and out",
+          "note": "One sheet and two hours. It gets priced and checked."
+        }
+      ]
+    },
+    "oc": {
+      "section": "HOUSE FINISHED · MOVING-IN WEEK",
+      "lead": "Painting is done and the furniture arrives Sunday. The Occupancy Certificate is the one point where an official compares what was built against what was approved, sanitation included.",
+      "asker": "Your contractor asks",
+      "prompt": "Do we apply for it?",
+      "options": [
+        {
+          "id": "movein",
+          "label": "Just move in. Nobody in this layout has one.",
+          "note": "Saves weeks of running about. The house stays off record."
+        },
+        {
+          "id": "getoc",
+          "label": "Apply for the OC, whatever it takes",
+          "note": "Weeks of follow-up. A file exists with your name on it."
+        }
+      ]
+    },
+    "client_push": {
+      "section": "FIRST MEETING · THE BRIEF",
+      "lead": "Twenty minutes into the first design meeting, sketch pad open on the table. You have just raised the septic tank and the covers, and the client waves it away: \"Sir, don't complicate the sanitation. The maistry knows.\"",
+      "asker": "Your client tells you",
+      "prompt": "What do you say back?",
+      "options": [
+        {
+          "id": "agree",
+          "label": "Agree. Keep your attention on the house itself.",
+          "note": "The client stays warm. The tank is left to habit."
+        },
+        {
+          "id": "note",
+          "label": "Put a note on the drawing and move on",
+          "note": "Two minutes of drafting. It covers you, instructs nobody."
+        },
+        {
+          "id": "explain",
+          "label": "Sit them down and explain who opens this tank in twenty years",
+          "note": "Twenty minutes and some goodwill. You may be overruled."
+        }
+      ]
+    },
+    "handover": {
+      "section": "FIRST DAY ON SITE · HANDING IT OVER",
+      "lead": "Work starts Monday. The maistry who will actually build the tank is standing in front of you, and he has never seen your drawing.",
+      "asker": "Your maistry asks",
+      "prompt": "What does he leave with?",
+      "options": [
+        {
+          "id": "print",
+          "label": "An A3 print of the plan. He'll work the rest out.",
+          "note": "Costs you nothing. He builds the tank from habit."
+        },
+        {
+          "id": "verbal",
+          "label": "The print, plus ten minutes on site explaining it",
+          "note": "One short visit. Said out loud, marked nowhere."
+        },
+        {
+          "id": "marked",
+          "label": "Print, site walk, and you chalk the cover positions yourself",
+          "note": "An hour of your day. The positions are on the ground."
+        }
+      ]
+    },
+    "sizing": {
+      "section": "DESIGN STAGE · SIZING THE TANK",
+      "lead": "The architect's plan is on your desk. Five people in the house, and the tank is a rectangle in the northwest corner. He wants a size from you by this evening.",
+      "asker": "The architect asks",
+      "prompt": "How big does the tank need to be?",
+      "options": [
+        {
+          "id": "thumb",
+          "label": "Thumb rule. 8×4×5 feet does for a family.",
+          "note": "Takes a minute. Sized to the corner, not the household."
+        },
+        {
+          "id": "oversize",
+          "label": "Build it big. Fewer visits from the tanker.",
+          "note": "More capacity per rupee. A deeper hole to reach into."
+        },
+        {
+          "id": "std",
+          "label": "Work it from IS 2470: litres per person, against years between emptying",
+          "note": "Arithmetic, no money. Says nothing about the depth."
+        }
+      ]
+    },
+    "site_visit": {
+      "section": "CASTING WEEK · THE DAY OF THE POUR",
+      "lead": "The contractor rings to say the tank top gets cast on Tuesday. Once that concrete goes in, the openings are fixed for good, and you have three other sites running that week.",
+      "asker": "Your contractor asks",
+      "prompt": "When do you go and look?",
+      "options": [
+        {
+          "id": "photos",
+          "label": "Ask him to send photos on WhatsApp",
+          "note": "No travel at all. Photos arrive after the pour."
+        },
+        {
+          "id": "after",
+          "label": "Go after work, once the slab is on",
+          "note": "Fits your week. You see the result, not the decision."
+        },
+        {
+          "id": "during",
+          "label": "Be there before they cast",
+          "note": "Half a day gone. The one hour it can still be changed."
+        }
+      ]
+    },
+    "truck_access": {
+      "section": "DESIGN STAGE · THE WAY IN",
+      "lead": "You are on the plot with the architect's site plan. A desludging tanker, the lorry that comes to pump the tank out, needs about 3 m of width and room to turn. Its suction hose pulls about 30 m at best.",
+      "asker": "Nobody asks. You are the one holding the tape.",
+      "prompt": "How far do you take the access check?",
+      "options": [
+        {
+          "id": "assume",
+          "label": "The road's 20 feet wide. It'll manage.",
+          "note": "No time spent. Judged on the road as it is today."
+        },
+        {
+          "id": "measure",
+          "label": "Measure the turning radius and the gate width",
+          "note": "An hour with a tape. Tells you about the approach only."
+        },
+        {
+          "id": "hose",
+          "label": "Measure it, and keep the tank within 30 m of where a tanker stands",
+          "note": "Ties down the layout. A hose reaches from the road."
+        }
+      ]
+    },
+    "quote_line": {
+      "section": "BEFORE THE JOB IS WON · PRICING IT",
+      "lead": "Your quote goes to the owner on Friday and he is holding two others. He will compare the three of you on the figure at the bottom of the page.",
+      "asker": "Your estimator asks",
+      "prompt": "How does the tank go into the quote?",
+      "options": [
+        {
+          "id": "lumpsum",
+          "label": "\"Sanitation works, lump sum.\" One line.",
+          "note": "Keeps the total low. You decide the tank later."
+        },
+        {
+          "id": "optional",
+          "label": "Base price without covers or vent. Those go in as extras.",
+          "note": "Sharpest headline figure. The owner picks the extras."
+        },
+        {
+          "id": "itemised",
+          "label": "Itemised line by line: tank, covers, vent, and the pit the outlet runs into",
+          "note": "Honest total, bigger number. He sees what he is buying."
+        }
+      ]
+    },
+    "labour_in_pit": {
+      "section": "WALLS UP · PLASTERING THE INSIDE",
+      "lead": "The tank walls are built. The inside has to be plastered smooth before the top goes on, and the only way to do that is for a man to climb down into the tank. It is clean in there today.",
+      "asker": "Your maistry asks",
+      "prompt": "Who goes down, and how?",
+      "options": [
+        {
+          "id": "whoever",
+          "label": "Whoever's free. It's ten minutes.",
+          "note": "No delay and no cost. Nobody minds the opening."
+        },
+        {
+          "id": "rope",
+          "label": "Our regular man, with a rope round his waist",
+          "note": "A man you trust, and a hold on him. One man above."
+        },
+        {
+          "id": "kit",
+          "label": "Air it out first. He goes in with a harness he can be hauled out by.",
+          "note": "A few thousand in kit. Half the morning gone."
+        }
+      ]
+    },
+    "slab_call": {
+      "section": "EVENING BEFORE THE POUR · THE TOP OF THE TANK",
+      "lead": "The tank walls are up and the shuttering for the top goes on at first light. On the drawing the tank is two letters and a rectangle, with no instruction about the top. Nobody from the office is coming.",
+      "asker": "Nobody is here to ask",
+      "prompt": "What do you cast tomorrow?",
+      "options": [
+        {
+          "id": "flush",
+          "label": "Seal it over solid. That's how it's always been done.",
+          "note": "Clean and quick. Breaking it is the way back in."
+        },
+        {
+          "id": "ask",
+          "label": "Phone the engineer tonight and ask",
+          "note": "Costs a call. The pour may slip a day."
+        },
+        {
+          "id": "covers",
+          "label": "Leave two covers. Half a bag of cement.",
+          "note": "An hour of shuttering. Owner may call it unfinished."
+        }
+      ]
+    },
+    "depth": {
+      "section": "DIGGING WEEK · THE PIT",
+      "lead": "The machine has broken ground in the corner you marked. Firm soil, no rock yet, and the depth is yours to call while the bucket is still going down.",
+      "asker": "The JCB driver asks",
+      "prompt": "How deep do we go?",
+      "options": [
+        {
+          "id": "deep",
+          "label": "As deep as the soil allows. More capacity, fewer complaints.",
+          "note": "Most volume per foot of plot. A long reach down."
+        },
+        {
+          "id": "standard",
+          "label": "Standard depth, about as deep as a man can work in",
+          "note": "What everyone builds. Set by habit, not by the house."
+        },
+        {
+          "id": "shallow",
+          "label": "Shallow and wide. Harder to dig, easier to reach into.",
+          "note": "More digging and more plot used. Bottom stays in reach."
+        }
+      ]
+    },
+    "speak_up": {
+      "section": "HOURS BEFORE THE POUR · THE OWNER ON SITE",
+      "lead": "The owner has come by on his way home and seen the gaps left in the shuttering. He wants the top sealed smooth so the yard looks finished. You know what that will cost the man who has to open it.",
+      "asker": "The owner tells you",
+      "prompt": "Do you say anything?",
+      "options": [
+        {
+          "id": "quiet",
+          "label": "Say nothing. He's paying, and he wants it clean.",
+          "note": "No friction, work carries on. His call goes unanswered."
+        },
+        {
+          "id": "mention",
+          "label": "Mention it once. If he says no, it's on him.",
+          "note": "You have said it. A pause will read as a refusal."
+        },
+        {
+          "id": "insist",
+          "label": "Tell him plainly: in ten years somebody breaks this open with a hammer",
+          "note": "He may well agree. You become the difficult one."
+        }
+      ]
+    },
+    "record": {
+      "section": "BACKFILL DAY · COVERING IT OVER",
+      "lead": "The tank is finished and the earth goes back over it this afternoon. After that, the depth and the cover positions exist only in the heads of the men standing here.",
+      "asker": "Your own call, before the earth goes back",
+      "prompt": "How does the next person find what you built?",
+      "options": [
+        {
+          "id": "nothing",
+          "label": "Nothing. I'll remember.",
+          "note": "No time spent. The record leaves when you do."
+        },
+        {
+          "id": "photo",
+          "label": "Photos on your phone before the earth goes back",
+          "note": "Ten minutes. On one phone, with no map to the spot."
+        },
+        {
+          "id": "mark",
+          "label": "Photos, and a marker stone set over each cover",
+          "note": "Ten minutes and one stone. A stone in the yard."
+        }
+      ]
+    }
+  }
+}

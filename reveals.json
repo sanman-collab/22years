@@ -1,0 +1,440 @@
+{
+  "decisions": {
+    "organise": {
+      "options": [
+        {
+          "id": "maistri",
+          "result": "You handed the build to a maistry you know, on a handshake. He will very likely give you a good house. He will also leave nothing behind that says what is under the driveway, so in twenty years the only record of this tank is whatever he still remembers."
+        },
+        {
+          "id": "contractor",
+          "result": "You bought a fixed price and one person to blame. That is real accountability, but only for what the quote actually lists. Read the line about sanitation carefully, because that line is the whole of what you have bought underground."
+        },
+        {
+          "id": "professional",
+          "result": "You put an architect and an engineer in the room before anyone broke ground. Two people now hold the knowledge that would make this tank emptiable. Whether anybody asks them for it is the next hour of your life."
+        }
+      ],
+      "reveal": {
+        "fact": "Most houses in this belt are built on trust rather than on paper. The maistry route is cheaper and quicker, and it leaves behind no document at all.",
+        "cost": "Indicative: a maistry-led build saves roughly 4 to 7% of cost. It also removes the only person who is contractually obliged to think about the tank.",
+        "lesson": "The most expensive version of this build is the one where an architect and an engineer are paid in full and nobody asks either of them about the tank. That happens often. A septic tank has no client. Nobody in the room is paying to make it emptiable, so whoever organises the build inherits that silence by default.",
+        "alternatives": "The routes you did not take sit on one spectrum: how much of this tank ends up on paper, and how much stays in somebody's head. Trust is quick and leaves nothing to inherit. Paper is slow, and it is the only part of a build that can still be read in 2048."
+      }
+    },
+    "location": {
+      "options": [
+        {
+          "id": "vastu",
+          "result": "You placed the tank where vastu allows, in the northwest corner. That is a real constraint in a real family, and it holds for the life of the house. It is also the placement most likely to end up behind a wall somebody builds later, with the truck parked out on the road."
+        },
+        {
+          "id": "behind",
+          "result": "You put the tank behind the house, out of sight. The yard looks better and the problem is invisible, which is exactly the point. Go and stand where a truck would have to park, then count the metres of hose it takes to get from there to the tank."
+        },
+        {
+          "id": "gate",
+          "result": "You put the tank near the gate, where a truck can pull up beside it. The hose will reach from the road without anyone dragging it past the kitchen. This one placement does more for the person who eventually empties this tank than most of the rest of the build."
+        }
+      ],
+      "reveal": {
+        "fact": "A truck that empties septic tanks carries about 30 m of hose and needs somewhere to stand. When the tank sits behind a built house, the hose either does not reach or gets dragged through the kitchen.",
+        "cost": "Indicative: an unreachable tank adds ₹1,500 to ₹4,000 to every emptying, for the life of the house. It is also the most common reason a worker climbs in instead.",
+        "lesson": "Most tanks are placed somewhere a truck could have reached, then walled in a few years later by a compound wall or a car porch. The access does not fail on the day it is designed, so nobody ever connects the two events. Access is settled in the first ten minutes of site planning, by people thinking about the house, and it is almost never looked at again.",
+        "alternatives": "Every other spot on this plot answers to somebody: the family's sense of order, or the way the yard looks. The truck answers to nobody, and it is the only one of them still turning up in twenty-two years."
+      }
+    },
+    "budget_cut": {
+      "options": [
+        {
+          "id": "tank",
+          "result": "You took the money out of the septic tank specification. It is the honest answer and by far the most common one, and nobody who visits this house will ever see what you gave up. The cost has not gone away. It has moved to a stranger with a bucket, about twenty years from now."
+        },
+        {
+          "id": "finish",
+          "result": "You cut the cladding off the front of the house and left the tank alone. The house reads plainer from the road for a while. Cladding can go on in year five. A tank cannot be re-cast once the slab is on."
+        },
+        {
+          "id": "delay",
+          "result": "You refused to cut anything and went looking for the money, at the price of two more months of rent. Expensive in patience. You also kept the buried part of the build out of the argument entirely, which is the one thing that reliably protects it."
+        }
+      ],
+      "reveal": {
+        "fact": "When a build goes over, the cut lands on whatever cannot be seen from the road. Underground work is the first item to lose its specification and the last to get it back.",
+        "cost": "Indicative: the whole gap between a bare ring tank and a properly detailed two-chamber tank with covers and a vent is ₹25,000 to ₹45,000. That is about a third of this overrun.",
+        "lesson": "The tank is rarely cut outright. It gets quietly downgraded, usually by dropping the covers and the vent, and nearly all of the worker-safety value in a tank sits in those two items. Invisible work loses every budget argument it is in. The only defence is to price the covers and the vent as their own named lines, so that removing them is something a person has to actively do.",
+        "alternatives": "The cuts you left on the table all sit somewhere on one line: what gets sacrificed when the number does not work. Things people can see tend to survive, because somebody is looking at them. Things under the driveway tend not to, and the driveway never complains."
+      }
+    },
+    "tanktype": {
+      "options": [
+        {
+          "id": "rings",
+          "result": "You went with precast concrete rings, stacked and sealed, finished in an afternoon. Fast and entirely defensible on cost. The ring diameter now decides how big your opening can be, and that diameter is usually too small for a hose and a rake to work through. Your choices about the top and the outlet water have just narrowed."
+        },
+        {
+          "id": "well",
+          "result": "You had it lined in stone, the way an old well is built. Roomier inside than rings, and it will still be standing in a hundred years. Water and roots travel both ways through stone joints, so expect it to behave more like an open pit than a sealed tank, and expect the groundwater around it to know about it."
+        },
+        {
+          "id": "brick",
+          "result": "You had it built in brick and plastered smooth inside. A solid middle: less sludge clinging to the walls, and a better shape to empty than rings. It is still a single compartment, so the water leaving it will carry solids out to wherever you have sent them."
+        },
+        {
+          "id": "twochamber",
+          "result": "You built two chambers with a dividing wall that holds the floating scum back from the outlet. This is what IS 2470 actually asks for, and it is almost never built. Solids now settle in the first chamber instead of travelling out of the tank, and everything downstream of here gets easier, including where the water is allowed to go."
+        }
+      ],
+      "reveal": {
+        "fact": "A single-compartment tank does not settle solids properly. Sludge carries through to the outlet, the pit the water drains into silts up, and the tank then needs emptying far more often than it should.",
+        "cost": "Indicative: two chambers cost ₹12,000 to ₹20,000 more than rings. Over the life of the tank they roughly halve the number of times it has to be opened.",
+        "lesson": "Nothing is wrong with the concrete in a ring tank. The trouble is the geometry. The ring diameter sets the opening, and a ring tank almost always ends up with a hole too small for anything but a human body. Tank type quietly fixes the ceiling on everything after it: how often the tank must be opened, and whether the water leaving it has anywhere safe to go.",
+        "alternatives": "The materials you passed over differ less in strength than in the shape they leave behind, and shape is what decides whether a hose can do this job at all. A single compartment of any material pushes solids out towards whatever the water drains into. A divided tank keeps them where a truck can still reach them."
+      }
+    },
+    "openings": {
+      "options": [
+        {
+          "id": "flush",
+          "result": "You closed the top with one solid slab, sealed right across. Nothing sticks up, the yard reads as finished, and wanting that is reasonable. It also means the first step of every emptying for the life of this house is a hammer, and what gets broken open gets patched back worse each time."
+        },
+        {
+          "id": "small",
+          "result": "You left one small opening, about a foot and a half across, to be plastered over later. This is the most common tank top in the country and it is better than a sealed slab. It is also too small for a hose and a rake to work in, so the usual way to clean it is an arm, then a shoulder, then a whole person."
+        },
+        {
+          "id": "covers",
+          "result": "You left two covers, two feet by two feet, sitting level with the ground. A hose reaches in, a rake reaches in, and nobody has to. Keep the frames at ground level and tell the owner why, because anything standing proud of the ground gets buried by later landscaping."
+        }
+      ],
+      "reveal": {
+        "fact": "This is the decision. A 2×2 ft cover at ground level lets a hose and a rake do the work. A 1½ ft hole admits an arm, or a person. A slab sealed across the whole top means every emptying begins by breaking concrete.",
+        "cost": "Indicative: two covers with frames add ₹4,000 to ₹8,000. That is among the cheapest lines in the whole build and the first one struck off when money gets tight.",
+        "lesson": "Small openings are usually chosen for safety, so that a child cannot fall in. What they produce is a tank that can only be cleaned by putting an adult inside it. Almost every case of a worker entering a septic tank traces back to an opening too small to work through, sized that way by somebody thinking about how the yard would look.",
+        "alternatives": "The other ways of closing a tank trade the same two things against each other: how finished the yard looks today, and how much force it takes to get in later. The yard is the one somebody is standing and looking at while the concrete is still wet."
+      }
+    },
+    "vent": {
+      "options": [
+        {
+          "id": "none",
+          "result": "You skipped the vent. Nobody asks for one and the tank will work without it. You have also put good covers on a space that keeps its own atmosphere: hydrogen sulphide sitting low near the sludge, methane gathering up under the slab, and less oxygen than a person needs. Lifting the cover does not clear any of that."
+        },
+        {
+          "id": "short",
+          "result": "You ran a short vent and tucked it behind the parapet wall so it would not show from the street. Gas now has a route out, which is a genuine improvement. Behind a parapet it empties into air that does not move, and a pipe nobody can see is the first thing sealed up in the next renovation."
+        },
+        {
+          "id": "proper",
+          "result": "You took the vent to full height, above the roof line and away from windows, with a cowl on top so rain and nests cannot block the mouth. The tank now breathes continuously instead of holding what it makes. That is the difference between a confined space and a tank."
+        }
+      ],
+      "reveal": {
+        "fact": "A working septic tank produces hydrogen sulphide and methane and uses up the oxygen above the sludge. The two gases do not behave alike. Hydrogen sulphide is heavier than air and pools low, at the level a person stands and breathes in. Methane is lighter than air and collects at the top, under the slab. A vent gives both of them a way out. An unvented tank holds them indefinitely, and opening the cover does not clear it.",
+        "cost": "Indicative: a proper vent is ₹1,500 to ₹3,000 of PVC pipe. It is the cheapest life-safety item in the whole build.",
+        "lesson": "Hydrogen sulphide takes out your sense of smell within seconds at concentrations that can kill you. The warning stops exactly where the danger starts, which is why people standing at the edge afterwards say it did not smell of anything much. A vent's job is to keep air moving through the tank. Smell is a side effect. The vent gets left off because the thing it prevents has never been seen by anybody on that site.",
+        "alternatives": "There are two ways to get this wrong and one of them leaves a pipe standing. A tank with a short hidden vent and a tank with no vent look identical from the yard, and both hold their own air. Height and a clear mouth are the whole of what makes a vent work."
+      }
+    },
+    "effluent": {
+      "options": [
+        {
+          "id": "storm",
+          "result": "You ran the outlet into the storm drain at the front. It works immediately, it never backs up, and that is why so many houses do it. Water leaving a septic tank is not treated, so that drain is now carrying sewage, and whoever clears it meets your sewage without being told what it is."
+        },
+        {
+          "id": "soak",
+          "result": "You put a soak pit beside the tank, a lined hole that lets the water seep away into the ground. Standard answer, and a sound one if it is sized for your soil and set back far enough from the tank. Most are neither. When a soak pit silts up, the first sign is a tank that seems to fill much faster than it used to."
+        },
+        {
+          "id": "dispersion",
+          "result": "You ran the outlet into a trench sized for your soil, so the water spreads along a length of ground instead of dropping down one hole. It costs more and it takes garden. It also keeps load off the tank, which means fewer visits, and fewer visits means fewer times anybody opens it."
+        }
+      ],
+      "reveal": {
+        "fact": "Water leaving a septic tank is not treated water. In a storm drain it becomes an open sewage channel. In an undersized soak pit it silts up, backs up, and forces the tank open years earlier than planned.",
+        "cost": "Indicative: a properly sized trench is ₹15,000 to ₹30,000. A silted soak pit costs an emptying every few months and eventually has to be dug out by hand.",
+        "lesson": "A soak pit that is failing does not announce it. The tank simply fills faster and the household adjusts to calling the truck more often. By the time anyone investigates, the failure is a decade deep and somebody is going down into the pit to find it. Where the water goes decides how often the tank gets opened. Frequency is exposure, and every avoidable emptying is another entry in somebody's working year.",
+        "alternatives": "The outlets here differ mainly in who absorbs the water: the street, one hole beside the tank, or a length of your own garden. The further the water travels before it has to soak away, the less often this tank gets opened."
+      }
+    },
+    "drawing": {
+      "options": [
+        {
+          "id": "st",
+          "result": "You marked it ST with a rectangle, the way it appears on nearly every sanctioned drawing in the region. It will be approved without a question. Nothing on paper says how many chambers it has or how big the covers are, so neither gets priced or checked. The tank now lives entirely in the maistry's memory, and that memory holds no cover size."
+        },
+        {
+          "id": "detail",
+          "result": "You drew the tank in section: the chambers, the cover sizes, the vent, and the levels the pipes run in and out at. One extra sheet. It is the only object in this project that will outlast everybody working on it, and in 2048 somebody can find out what is down there without swinging a hammer at the yard."
+        }
+      ],
+      "reveal": {
+        "fact": "On most sanctioned drawings in this region a septic tank is two letters and a rectangle. Nothing about compartments, cover size, vent or outlet is drawn, so nothing about them gets priced or checked.",
+        "cost": "Indicative: a proper section is one extra sheet and perhaps two hours of drafting.",
+        "lesson": "Drawing the rectangle is the rational move. It is what gets approved fastest, because detailing the tank invites questions from an office with no mechanism to judge the answers, and that costs weeks. What is not drawn is not priced, and what is not priced is nobody's fault. The rectangle is how a responsibility disappears without one person deciding to drop it.",
+        "alternatives": "The version you did not draw is the same tank with a different amount of it written down. Paper is the only part of this build that can still be consulted in twenty-two years. Everything else is memory, and memory leaves the district."
+      }
+    },
+    "oc": {
+      "options": [
+        {
+          "id": "movein",
+          "result": "You moved in without the Occupancy Certificate, like everyone else in the layout. Nothing happens, which is rather the point. It also means no independent person ever compared the tank that was built against the tank that was approved, and on paper this house was never finished."
+        },
+        {
+          "id": "getoc",
+          "result": "You applied for the Occupancy Certificate and sat through it. Weeks of follow-up for a document nobody in your street has. It is the only point in this whole chain where an outsider is meant to look at the sanitation as built, and you kept this tank inside the system of record."
+        }
+      ],
+      "reveal": {
+        "fact": "The Occupancy Certificate is the one point at which somebody official is supposed to compare what was actually built, sanitation included, against what was approved.",
+        "cost": "Indicative: weeks of follow-up, and in practice a process most owners route around completely.",
+        "lesson": "Skipping the certificate does more than avoid scrutiny. It takes the building off the record, and a building that is not on the record is one nobody can later be required to fix. Accountability here comes down to whether a document exists with somebody's name on it. Every step that skips the paperwork removes a future person's ability to ask why, and the person who will want to ask is usually the one holding the hammer.",
+        "alternatives": "The other route is the same house with a different relationship to the state. One version of it can be asked a question in 2048. The other cannot, because officially it does not exist yet."
+      }
+    },
+    "client_push": {
+      "options": [
+        {
+          "id": "agree",
+          "result": "You agreed and went back to the elevation. The relationship is intact and the argument never happened. What you know about cover sizes and vents is still in your head, which is the one place it can do no good at all."
+        },
+        {
+          "id": "note",
+          "result": "You put a note on the drawing and moved on. A note is a real object: it survives, it is evidence, and it shifts the liability off you. It also gets read by nobody on site. Half a step."
+        },
+        {
+          "id": "explain",
+          "result": "You sat the client down and told them who opens this tank in twenty years. You spent your own credibility on the part of the project nobody else in that room was going to defend. That is roughly what being the professional costs, and it is most of what the fee is actually for."
+        }
+      ],
+      "reveal": {
+        "fact": "An architect is hired and judged on the visible house. Sanitation sits outside the fee conversation, so professional attention drains away from it exactly where it is needed most.",
+        "cost": "Indicative: the conversation costs twenty minutes and some goodwill. Losing it costs you nothing you will ever be told about.",
+        "lesson": "Clients almost never refuse covers and a vent on cost. They refuse because nobody has framed them as being about a person. Framed that way, most say yes. The thing a professional actually delivers on a septic tank is one conversation where the worker is named out loud. Skip that conversation and the expertise is simply unused.",
+        "alternatives": "This decision is really about how far your knowledge travels. A sheet of paper moves the liability but not the tank. Saying it out loud, to the person who can still change his mind, is the only version that changes what gets built."
+      }
+    },
+    "handover": {
+      "options": [
+        {
+          "id": "print",
+          "result": "You handed over an A3 print and left him to it. The drawing is now up against thirty years of habit, and habit wins wherever the paper is silent. Whatever you detailed about the covers will most likely be built the way the last tank he built was built."
+        },
+        {
+          "id": "verbal",
+          "result": "You gave him the print and ten minutes on site walking it through. Those ten minutes are the actual specification. In a trade that runs on speech, what you said standing on the spot is what gets built."
+        },
+        {
+          "id": "marked",
+          "result": "You gave him the print, walked the site, and chalked the cover positions on the ground yourself. Chalk outranks any drawing, because the man casting the slab is looking at the ground, not at an A3 sheet in a folder. The cover positions are now in the medium the work is actually done in."
+        }
+      ],
+      "reveal": {
+        "fact": "The gap between a drawing and a built tank is a conversation that usually does not happen. The maistry builds from habit wherever the drawing is silent, and on the tank the drawing is almost always silent.",
+        "cost": "Indicative: one site visit. Perhaps an hour.",
+        "lesson": "Maistries very often know more about tanks than the drawing says, and less about why the details matter. The visit works in both directions, and you will come away knowing the site constraint you drew straight through. Design intent does not travel on paper alone in an oral building culture. If you did not say it out loud, standing on the spot, you did not specify it.",
+        "alternatives": "The handovers you did not choose differ in how much of this tank exists outside the paper. Paper is read once, in an office. The ground gets read every morning."
+      }
+    },
+    "sizing": {
+      "options": [
+        {
+          "id": "thumb",
+          "result": "You used the thumb rule, 8 by 4 by 5 feet, the size that has worked on every house like this one. It will broadly work, because thumb rules are real experience compressed into a number. It carries no reasoning, though, so nobody after you can check it or adjust it when the family grows."
+        },
+        {
+          "id": "oversize",
+          "result": "You built it big, on the logic that a bigger tank needs fewer visits. Capacity is generous. Look at what you bought it with: on a tight plot, extra volume is almost always extra depth, and sludge at the bottom of a seven-foot tank is beyond the reach of a hose held from above. A deep tank is also much harder to get an unconscious man out of."
+        },
+        {
+          "id": "std",
+          "result": "You sized it the way IS 2470 says to, from the number of people, the litres each of them uses, and the interval you intend to empty it at. The arithmetic costs nothing and it leaves a reason behind for every dimension. Now hold on to the emptying interval you assumed, because that number is what justifies all the rest."
+        }
+      ],
+      "reveal": {
+        "fact": "IS 2470 sizes a tank from how many people live there, how much water they use, and how often you intend to empty it, typically every two to three years. The thumb rule sizes it from what fits the corner of the plot.",
+        "cost": "Indicative: nil. Correct sizing is arithmetic, not money.",
+        "lesson": "Oversizing can make the job worse. A very deep tank is no easier to empty and much harder to get a man out of, and on a small plot the only way to add volume is to go down. Capacity is the parameter engineers reach for, because it is the one with a formula attached. Depth and opening size decide the worker's day, and neither of them appears anywhere in the capacity calculation.",
+        "alternatives": "The other ways of sizing this tank arrive at a volume and stop there. Volume is the easy half. The hard half is the shape that volume takes, and nothing in the brief asks you about it."
+      }
+    },
+    "site_visit": {
+      "options": [
+        {
+          "id": "photos",
+          "result": "You asked for photos on WhatsApp. They will arrive, they will be perfectly clear, and they will show you a decision that can no longer be changed. Photos come after the pour, essentially always. What you have is a record, not a check."
+        },
+        {
+          "id": "after",
+          "result": "You went after work, once the slab was on. You will see exactly what was built and you will be able to raise it. Changing it then means breaking a fresh slab, and somebody has to agree to pay for that. Almost nobody does."
+        },
+        {
+          "id": "during",
+          "result": "You were there before they poured. That hour, between the formwork going up and the concrete going in, is the only window in which this tank can still become something other than what it is about to be. Everything else available to you is a way of finding out."
+        }
+      ],
+      "reveal": {
+        "fact": "A septic tank is correctable for about an hour, between the formwork going up and the concrete going in. After that, changing the cover size means demolition.",
+        "cost": "Indicative: one site visit, timed right.",
+        "lesson": "Asking for photos is well meant and structurally guaranteed to be late. Nobody on site stops a pour to send a picture, so the photograph documents a finished thing. Supervision has a window, and for underground work that window is a few hours wide. Inspection outside the window is documentation, not control.",
+        "alternatives": "This decision is about timing rather than diligence. Anything that reaches the site after the pour turns into evidence for the next house. The pour does not wait for anybody's schedule."
+      }
+    },
+    "truck_access": {
+      "options": [
+        {
+          "id": "assume",
+          "result": "You took the road as read. Twenty feet is wide enough for a truck today, and that is true today. Ask what it measures once both neighbours park, and once the gate gets a pillar. The gap between it will manage and it did not is exactly where hand emptying lives."
+        },
+        {
+          "id": "measure",
+          "result": "You measured the turning circle and the gate width. An assumption is now a number, and a number can be checked by somebody who was never on this site, which is the whole value of writing it down. Note what the gate measures, not what the road does. The gate is the thing that gets narrowed."
+        },
+        {
+          "id": "hose",
+          "result": "You measured the access and then kept the tank within 30 m of wherever the truck can stand. The hose is the constraint that actually binds, not the road width, and hardly anyone designs to it. A truck that can park and still not reach is the same thing as a truck that cannot come."
+        }
+      ],
+      "reveal": {
+        "fact": "A truck that empties septic tanks needs roughly 3 m of width and room to turn, and its suction hose reaches about 30 m at best, less with bends and any lift.",
+        "cost": "Indicative: nil at design stage. Close to impossible to fix afterwards.",
+        "lesson": "The access that exists during construction is not the access that will exist later. Roads get narrowed by parked cars, gates get pillars, neighbours build up to the line. Design for worse than today. Truck access appears on no checklist and in no drawing. When it fails, nobody sends a smaller truck. Somebody turns up with a bucket.",
+        "alternatives": "What separates the answers here is whether anything leaves this decision in writing. An assumption cannot be handed on, and it cannot be argued with. A measured gate width can be both."
+      }
+    },
+    "quote_line": {
+      "options": [
+        {
+          "id": "lumpsum",
+          "result": "You priced it as a single line, sanitation works, lump sum. Standard practice, and it leaves the interpretation legitimately to you. You will use that room, because your margin is in there. The client compared your number against somebody else's number, and neither number described the same tank."
+        },
+        {
+          "id": "optional",
+          "result": "You quoted a base price without the covers and the vent, and offered them as extras. You have named the two items that matter, which turns them into a visible cost the client can now consciously decline. Most decline. An item that has been offered and refused is much harder to put back than one that was never discussed."
+        },
+        {
+          "id": "itemised",
+          "result": "You itemised it: tank, covers, vent, soak pit, each with its own price. The invisible items are now visible and quotable, and the client is genuinely choosing for the first time. Your total will also read higher than a competitor's lump sum for worse work, and that may cost you the job."
+        }
+      ],
+      "reveal": {
+        "fact": "A lump-sum line lets a contractor pick the cheapest honest reading of the words. Two quotes for sanitation works can describe two completely different tanks, and the client has no way of seeing the difference.",
+        "cost": "Indicative: the covers and the vent together are ₹6,000 to ₹11,000, under 1% of a typical build and invisible inside a lump sum.",
+        "lesson": "Itemising can lose you the job. An honest total reads expensive beside a competitor's lump sum for worse work, so the market actively penalises the quote that tells the truth. Competitive bidding drives out exactly the items nobody can see. Unless the safety components appear as named lines, the bidding process removes them on everyone's behalf, and no single person ever decides to remove them.",
+        "alternatives": "The other ways of writing this quote move the discretion between you and the client. Discretion is where the margin sits, which is why the vaguest quote on the table is usually the most competitive one."
+      }
+    },
+    "labour_in_pit": {
+      "options": [
+        {
+          "id": "whoever",
+          "result": "You sent whoever was free. Ten minutes of plastering inside a clean new tank, and it is almost always fine. Almost always fine is the shape of this entire risk: the practice becomes normal long before the day it goes wrong, and by then nobody on site remembers deciding anything."
+        },
+        {
+          "id": "rope",
+          "result": "You sent your regular man down with a rope tied round his waist. The instinct is right and the mechanism does not work. Work out how you would get him out unconscious through that opening. If the plan comes down to pulling a limp adult up through a narrow hole, it is not a plan, and the man who goes in after him is usually the second casualty."
+        },
+        {
+          "id": "kit",
+          "result": "You stopped the job until the tank was aired out and the man going in had boots, gloves and a harness he could actually be lifted by. You treated a clean new tank as a confined space, which is the only correct reading of it. The crew also just learned that this is the rule here, and that is the part that carries to the next site."
+        }
+      ],
+      "reveal": {
+        "fact": "The first person to go into this tank is not the man who comes to empty it in twenty years. It is a construction worker, this week, plastering the inside. A new tank is clean and dry, so it does not feel like a confined space at all.",
+        "cost": "Indicative: a blower and basic protective kit is a few thousand rupees, reusable on every job after this one.",
+        "lesson": "A rope around the waist is worse than nothing in a real emergency. An unconscious adult cannot be lifted vertically through a narrow opening by one person, and the rescuer is usually the next casualty. The habits set during construction become the habits of maintenance. If a man goes in casually while the tank is clean, a man goes in when it is not.",
+        "alternatives": "The other answers here differ in what counts as a precaution. A clean tank invites the shortest version of every rule, because nothing inside it looks dangerous yet. The atmosphere that kills people in these tanks arrives later, in the same hole, through the same opening."
+      }
+    },
+    "slab_call": {
+      "options": [
+        {
+          "id": "flush",
+          "result": "You cast it as one slab, sealed right across, the way you have always done it. Habit is usually good engineering compressed into muscle memory. This habit formed when tanks were shallower and nobody counted the cost to the man who has to open them, so every future emptying here starts with a hammer."
+        },
+        {
+          "id": "ask",
+          "result": "You called the engineer. He picked up, said leave two covers, and went back to his other site. You got an answer because you asked, which most people in your position never do, and the drawing was never going to volunteer it. Hold on to that instruction, because tomorrow morning you are the only person on site who heard it."
+        },
+        {
+          "id": "covers",
+          "result": "You left two covers in the slab, out of your own cement and an extra hour of shuttering. You spent your own margin on somebody you will never meet. If the owner comes back and asks you to plaster over them because they look unfinished, that is the argument worth having, and you will probably have to have it."
+        }
+      ],
+      "reveal": {
+        "fact": "Where the drawing is silent, the maistry decides. On a septic tank this is the highest-consequence uninstructed decision on the whole site. Nobody reviews it, and it becomes permanent the moment the concrete sets.",
+        "cost": "Indicative: two cover frames are ₹4,000 to ₹8,000 and one extra hour of shuttering.",
+        "lesson": "Maistries who do leave covers are often asked to take them out again, because the owner thinks they look like unfinished work. The safety feature reads as a job not completed. The person with the least standing on the site is making the decision with the longest consequence, under time pressure, with no instruction and nobody to ask. That is the design of the system rather than an accident inside it.",
+        "alternatives": "The other ways of finishing this slab differ in who carries the decision, you or somebody you have to ring. The concrete sets either way, and nobody comes to check it afterwards."
+      }
+    },
+    "depth": {
+      "options": [
+        {
+          "id": "deep",
+          "result": "You dug as deep as the soil would allow. Maximum capacity for the footprint, and fewer complaints about the tank filling. You have also put the sludge below the reach of a suction hose, which is the geometry that most often ends with a man going in. Past roughly 2 m the bottom stops coming up reliably."
+        },
+        {
+          "id": "standard",
+          "result": "You dug to standard depth, on the reasoning that a man cannot work in it if it goes deeper. A sound compromise, and worth looking at your own reasoning. You sized this tank around a man being inside it. Worth asking why he has to be in there at all."
+        },
+        {
+          "id": "shallow",
+          "result": "You dug shallow and wide. More excavation, more of the plot gone, and a tank a hose can actually clear from the surface. Hardly anybody makes this trade, because the cost lands on you and the benefit lands on a stranger."
+        }
+      ],
+      "reveal": {
+        "fact": "Depth gets chosen to fit capacity into a tight plot. Suction hoses lose lift with depth, and past roughly 2 m the sludge at the bottom stops coming up reliably.",
+        "cost": "Indicative: shallow and wide costs more to excavate and eats more of the plot. Going deeper saves no money anywhere, only space.",
+        "lesson": "Depth is invisible once the soil goes back over the tank. The man arriving in 2048 has no way to know how deep it is until the hose comes up empty, and then the decision to climb in gets made in about thirty seconds, in the sun, with a truck waiting. Every metre of depth turns a hose job into a body job. Capacity is a number on paper. Depth is a number in somebody's lungs.",
+        "alternatives": "The depths you did not dig trade plot area against reach. Going down is cheap and costs no space, which is why it is the default on every tight site. Reach is the thing nobody can add later."
+      }
+    },
+    "speak_up": {
+      "options": [
+        {
+          "id": "quiet",
+          "result": "You said nothing. He is paying, he wants a clean finish, and being the difficult one on site is expensive in a trade that runs on recommendations. That is a rational call. What you know about this slab stays with you, and it stays with you permanently."
+        },
+        {
+          "id": "mention",
+          "result": "You mentioned it once and let it go. The decision has moved to the owner, and the responsibility with it, which is fair enough. Mentioned once, quietly, in front of other people, is a low bar for something that becomes permanent the moment the concrete sets."
+        },
+        {
+          "id": "insist",
+          "result": "You told him plainly that in ten years somebody opens this with a hammer. You put a human being into the conversation, which is the only framing that reliably moves an owner off a clean finish. You may also have made this job harder for yourself, and you knew that before you opened your mouth."
+        }
+      ],
+      "reveal": {
+        "fact": "The knowledge needed to build this tank well is already standing on the site. The people who best understand what a buried tank does are furthest down the hierarchy that decides what gets built.",
+        "cost": "Indicative: nothing, beyond the risk of being seen as difficult by the person who pays you and recommends you to the next one.",
+        "lesson": "When people on site do raise it, owners agree far more often than anybody expects, because the objection was rarely about money in the first place. The man who raised it usually never finds out, because he says it once and reads the pause as a no. The information is already here. What does not exist is a channel where it can be said without costing the person who says it.",
+        "alternatives": "The other answers here differ in how much of your own standing you are willing to spend. Silence costs nothing today and settles this tank for forty years. A pause after you speak is not the same thing as a refusal."
+      }
+    },
+    "record": {
+      "options": [
+        {
+          "id": "nothing",
+          "result": "You kept it in your head. You will remember, for a while. You will not be reachable in 2048, and this house will have changed hands at least once by then, so the next person starts by guessing where the covers are."
+        },
+        {
+          "id": "photo",
+          "result": "You photographed the tank on your phone before the soil went back over it. Ten minutes and some phone storage become the only as-built record this tank will ever have. Send them to the owner today, because your phone will not survive twenty-two years either."
+        },
+        {
+          "id": "mark",
+          "result": "You took photos and set a marker stone over each cover before the soil went back. The stone is the part that works. It speaks to the man standing in the yard with a steel rod and no information, which is how most emptying visits actually begin."
+        }
+      ],
+      "reveal": {
+        "fact": "There is no as-built record for household sanitation anywhere in this chain. The depth, the chamber layout and the cover positions exist only as memory, and memory moves away or dies.",
+        "cost": "Indicative: nil. A phone and ten minutes before the soil goes back over it.",
+        "lesson": "The first job on most emptying visits is finding the tank. Workers probe the yard with steel rods, then break the slab wherever it sounds hollow, and that search routinely takes longer than the emptying itself. Twenty-two years is longer than any memory on this site will last. Without a record the next person begins by guessing, and guessing with a hammer is how good covers get destroyed.",
+        "alternatives": "The other answers here differ in where the information ends up: in a head, on a phone, or in the ground. Only the ground can be read by somebody who never met you."
+      }
+    }
+  }
+}

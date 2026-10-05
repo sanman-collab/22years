@@ -1,0 +1,179 @@
+{
+  "personas": [
+    {
+      "id": "owner",
+      "motivation": "You will build exactly one house in your life and this is it. The loan is sanctioned, and this month you are paying rent and the first instalment together. Everyone from your brother-in-law to the watchman has an opinion for you, and not one of them is about what sits under the back yard.",
+      "scene": "It is February. The plot is yours, the plan is approved, and the foundation trench is open. Nobody has discussed the tank with you, because everyone assumes it is standard. From here you will be asked about it four or five times, usually with men standing idle waiting for your answer. You have the money and the final word, and no way to tell a good answer from a cheap one.",
+      "askers": {
+        "organise": "Your own call, and everyone has a name for you",
+        "location": "The maistry wants the corner marked",
+        "budget_cut": "The contractor brings a revised quote",
+        "tanktype": "Your contractor asks",
+        "openings": "The maistry asks, standing on the pit",
+        "vent": "The plumber asks",
+        "effluent": "The maistry asks where the outlet goes",
+        "drawing": "Your architect asks how much detail you want",
+        "oc": "Nobody is asking. Your own call."
+      }
+    },
+    {
+      "id": "architect",
+      "motivation": "You were hired for the elevation, and your fee is a slice of a budget the client is already trying to shrink. You want this house photographed and in your portfolio. Sanitation is not in the brief, nobody is paying you to detail it, and whatever you leave off the drawing gets decided by a man you will never meet.",
+      "scene": "The client arrives with a plot, a number and a photograph of somebody else's front elevation. The site is fixed, the setbacks are fixed, and there is no sewer line on this road. Sanitation sits inside your fee as the part nobody discusses. In five months a maistry will read your sheet and build exactly what is on it, plus whatever he has to invent where it is blank.",
+      "askers": {
+        "client_push": "Your client, across your desk",
+        "location": "Your own call, on the site plan",
+        "tanktype": "The contractor asks what you specified",
+        "openings": "Your junior asks what to draw on top",
+        "vent": "The plumber calls you from site",
+        "drawing": "Your own call, before the print goes out",
+        "handover": "The maistry is at your office for drawings",
+        "oc": "The client asks if it is worth the trouble"
+      }
+    },
+    {
+      "id": "engineer",
+      "motivation": "You charge a few thousand rupees to check and stamp a house like this, and you have six of them running. You want the structure sound and your name clean. IS 2470 is on your shelf, and in fifteen years of practice nobody has asked you to apply it to a household tank.",
+      "scene": "You are called in after the plan is drawn. The tank's corner of the site is already chosen, the owner has already shaken hands with a contractor, and what reaches you is a sheet with a rectangle on it marked ST. Your signature is wanted this week. The questions you ask now are the last technical questions anyone will ask about this tank.",
+      "askers": {
+        "sizing": "The architect asks you for a number",
+        "truck_access": "Nobody asked. You noticed the gate.",
+        "tanktype": "The architect sends it for your sign-off",
+        "openings": "The contractor wants your approval",
+        "vent": "The contractor asks if he can skip it",
+        "effluent": "The owner calls you about the outlet",
+        "site_visit": "Your own call, looking at your week",
+        "record": "Nobody will ask you for this"
+      }
+    },
+    {
+      "id": "contractor",
+      "motivation": "You won this job by being the cheapest serious quote in the room, and steel has moved since you priced it. You pay your labour every week and you get paid when the owner feels like it. Below ground is where the number you promised has to be found again, and nobody ever inspects what is buried.",
+      "scene": "You quoted off a drawing that showed the tank as a rectangle and a label. Now the foundation is in, the owner has started asking about tile, and the tank gets cast on Tuesday. The architect has moved to his next job and the engineer signed the sheet two months ago. Every blank on that drawing is yours to fill, at your own cost.",
+      "askers": {
+        "quote_line": "Your own call, writing the quote",
+        "tanktype": "The owner asks what you would use",
+        "openings": "Your maistry asks before the shuttering",
+        "vent": "The owner asks whether it is needed",
+        "effluent": "Your maistry asks where to run the outlet",
+        "labour_in_pit": "Your maistry asks who goes down",
+        "speak_up": "Nobody asked you. The room is quiet.",
+        "record": "Your own call. Backfill is tomorrow."
+      }
+    },
+    {
+      "id": "maistry",
+      "motivation": "You have built about forty of these and you know what goes wrong with them, because you have also been called back to open them. You are paid by the day, and your next job comes from this owner's word to his neighbour. The drawing in your hand stops at the ground, and the men are waiting for you to say where to dig.",
+      "scene": "You arrive the week of the dig. The tank's position, its rough size and its budget were settled by people who are not on site today. The drawing ran out three lines above ground level, so how the top closes is yours to decide, tomorrow, with four men on day wages watching you think. Nobody will check any of it once the concrete sets.",
+      "askers": {
+        "location": "The owner points at a corner",
+        "depth": "Your own call, with the diggers waiting",
+        "tanktype": "Your own call, and the lorry is loaded",
+        "slab_call": "Nobody to ask. You cast tomorrow.",
+        "vent": "The plumber asks where to take it",
+        "labour_in_pit": "Your own call. Two men are watching.",
+        "speak_up": "Nobody asked you anything",
+        "record": "Your own call. Nobody will ever ask."
+      }
+    }
+  ],
+  "roleVoiced": {
+    "labour_in_pit": {
+      "options": [
+        {
+          "id": "whoever",
+          "result_by_role": {
+            "contractor": "You left it as nobody's decision, so it became a rule. On your sites a fresh tank is something a man steps into when there is plastering to finish, and that rule now travels to every tank your crew builds after this one. It costs you nothing until the one time it does, and that bill arrives with your name on it.",
+            "maistry": "You sent the youngest one, because he was standing closest and it was ten minutes of work. He came up fine, wiped his hands and went back to mixing. You will ask him again on the next tank, and the one after that, because nothing happened this time."
+          }
+        },
+        {
+          "id": "rope",
+          "result_by_role": {
+            "contractor": "You have bought a rope and a procedure nobody has tested. Ask your maistry to walk you through getting a grown man up through an eighteen inch opening when the man cannot help. If no one on site can answer that, what you have paid for is the feeling of a plan.",
+            "maistry": "You tied the knot yourself, on the man who always goes down, and you stood over the hole the whole time. He trusts the rope because your hands tied it. If he folds up down there, that rope gives you something to hold and nothing to pull. A grown man does not come up through that opening on one pair of arms."
+          }
+        },
+        {
+          "id": "kit",
+          "result_by_role": {
+            "contractor": "You put a blower and a harness on the job out of your own margin, before any client or inspector asked you for them. A few thousand rupees that lives in the van and turns up at every site after this one. Your crew has now learned that a clean new tank counts as a confined space, and that lasts longer than the equipment does.",
+            "maistry": "You kept him out until the blower had run, and you made him put the boots and the harness on with four men watching the day burn. He grumbled about the gloves. He will also be on your site next month, which is the only reason this decision cost you anything."
+          }
+        }
+      ],
+      "reveal": {
+        "lesson_by_role": {
+          "contractor": "What you permit once becomes the standing rule of your crew. Nobody writes it down and every man learns it anyway. Price the blower into the job rather than into the exception, because the exception is where your exposure sits.",
+          "maistry": "The man who goes down is somebody you know by name and will see tomorrow morning. No one above you will ever check how he went in. The habit you set while the tank is clean is the habit that holds on the day it is full."
+        }
+      }
+    },
+    "speak_up": {
+      "options": [
+        {
+          "id": "quiet",
+          "result_by_role": {
+            "contractor": "You let the flush slab go. You had the standing to argue and you kept it in reserve for the retention money, which is a real calculation on a job where the last payment is always the hardest to collect. The slab is now a decision nobody made out loud.",
+            "maistry": "You kept your mouth shut in front of the owner, which is what keeps a maistry in work. That man pays you this month and recommends you to the next man. What you know about the slab stays in your head and goes nowhere."
+          }
+        },
+        {
+          "id": "mention",
+          "result_by_role": {
+            "contractor": "You said it once in the room and let him decide, which puts the choice where it belongs. A passing remark has now settled a slab that somebody opens with a hammer in ten years. If you actually believe it, put it in writing and get it initialled.",
+            "maistry": "You said it once, quietly, with his relatives listening, then let it go. You read the pause as a no. Owners often say yes to this the second time it is put to them, and you will never find that out."
+          }
+        },
+        {
+          "id": "insist",
+          "result_by_role": {
+            "contractor": "You pushed, in front of the owner, on a point that earns you nothing. You may have spent goodwill you were saving for the tile bill. You also used the only real authority a contractor carries, which is being the man who has seen this go wrong before.",
+            "maistry": "You argued with the man who pays you, in front of his family, about a slab he cannot see any problem with. That takes more nerve than anything else on this site. It may cost you the referral, and it is also the only version of this conversation that has ever changed an owner's mind."
+          }
+        }
+      ],
+      "reveal": {
+        "lesson_by_role": {
+          "contractor": "You are the only person in that room who is paid to know and permitted to object. An owner expects a contractor to push back on cost, so pushing back on safety reads as professional rather than difficult. Saying it once and stopping protects you more than it protects the tank.",
+          "maistry": "You know more about this tank than anyone standing in that room, and you have the least right to speak in it. That is how the site is arranged, which is why the knowledge that would fix this never reaches the man signing the cheque. If you say it, say it twice."
+        }
+      }
+    },
+    "record": {
+      "options": [
+        {
+          "id": "nothing",
+          "result_by_role": {
+            "engineer": "You signed the design and left no as-built. Your drawing says where the tank was meant to sit; the tank sits where the diggers found easy soil. In twenty years that drawing will be the only authority on a tank it does not describe.",
+            "contractor": "The job closed and nothing recorded what you actually built. If the tank backs up in year four, it is his memory against yours, and he is the one holding your final payment. You also threw away the photographs that would have shown the covers you did put in.",
+            "maistry": "You will remember. You can walk onto a site from eight years ago and put your foot on the cover. Then there is the one you cannot find, and this house will have changed hands before anybody comes to open it."
+          }
+        },
+        {
+          "id": "photo",
+          "result_by_role": {
+            "engineer": "You photographed the tank open, before the backfill, which turns your design into a record of what was built. Now get them off your phone and into the file with the owner's name on it. An as-built nobody can locate is not an as-built.",
+            "contractor": "You photographed the tank open before the backfill, which is the cheapest insurance on this job. Send the set to the owner the same day and keep your copy. When the complaint comes, the date on the photo does the work your memory cannot.",
+            "maistry": "You took four photos with the pit still open. Your phone will be gone in two years, so send them to the owner on WhatsApp. His phone changes too, but his family stays in this house."
+          }
+        },
+        {
+          "id": "mark",
+          "result_by_role": {
+            "engineer": "Photos, and a marker stone over each cover. The photos protect your file. The stone speaks to a man standing in the yard with a probing rod who will never see your file, and he is the person the drawing was always for.",
+            "contractor": "Photos to the owner, and a marker stone over each cover. The photos are for the dispute. The stone is for the desludging crew in 2048, who will otherwise break through a cover you built properly, with nobody left to say so.",
+            "maistry": "You set a stone over each cover before the backfill went in. There is no drawing, no file, nothing with your name on it. Somebody standing in that yard in twenty years finds the cover in one minute because you spent ten."
+          }
+        }
+      ],
+      "reveal": {
+        "lesson_by_role": {
+          "engineer": "Documentation is the one link in this chain that is formally yours, and a household tank is the one place nobody will ever ask you for it. A design drawing is not an as-built. Record what was built, or the surviving version is the memory of men who move away.",
+          "contractor": "The record is what stands between you and an argument you cannot win with words. It costs ten minutes before the backfill, and that is the only window it can be made in. After Friday the tank is a story, and a story favours whoever is still around to tell it.",
+          "maistry": "Your record is your memory, and your memory is good. It is also the only copy, and it leaves the site when you do. Put something in the ground, or on somebody else's phone, so what you know outlasts your part in the job."
+        }
+      }
+    }
+  }
+}

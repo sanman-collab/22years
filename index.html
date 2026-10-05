@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FDFBF7">
+<title>Twenty-Two Years</title>
+<style>
+:root{
+  color-scheme: light;
+  --bg:#FDFBF7; --card:#FFFFFF; --ink:#1A1614; --ink2:#5C534C; --ink3:#9A918A;
+  --line:#E8E1D7; --accent:#C8871B; --accent-soft:#FDF4E3;
+  --green:#2E7D4F; --amber:#C8871B; --red:#C0392B;
+  --r:14px; --pad:18px; --maxw:520px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--font)}
+body{font-size:16px;line-height:1.5;min-height:100dvh}
+#app{max-width:var(--maxw);margin:0 auto;min-height:100dvh;display:flex;flex-direction:column}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(253,251,247,.94);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  padding:9px var(--pad);padding-top:max(9px,env(safe-area-inset-top));
+  display:flex;align-items:center;gap:9px}
+.tb-back{border:0;background:#F0EBE2;color:var(--ink2);font:inherit;font-size:13px;
+  font-weight:600;padding:6px 11px;border-radius:99px;cursor:pointer;flex:none}
+.tb-seat{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);
+  border:1px solid #EBD5A6;color:#8A5D0E;border-radius:99px;padding:5px 12px;
+  font-size:13px;font-weight:700;flex:none}
+.tb-seat small{font-weight:600;opacity:.75;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.tb-sp{flex:1}
+.tb-prog{font-size:12px;color:var(--ink3);font-weight:700;font-variant-numeric:tabular-nums;flex:none}
+.pbar{height:3px;background:var(--line);position:sticky;top:46px;z-index:29}
+.pbar > i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s ease}
+
+/* ---------- generic screen ---------- */
+.screen{flex:1;display:flex;flex-direction:column;padding:0 var(--pad) calc(20px + env(safe-area-inset-bottom));animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.spring{flex:1;min-height:14px}
+.hero{text-align:center;padding-top:14px}
+.hero .mark{font-size:40px}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:-1px;margin:8px 0 4px;line-height:1.12}
+.hero .sub{color:var(--ink2);font-size:15px;margin:0}
+.ctawrap{position:sticky;bottom:0;background:linear-gradient(to top,var(--bg) 62%,rgba(253,251,247,0));
+  padding:16px 0 calc(14px + env(safe-area-inset-bottom));margin-top:auto}
+.cta{width:100%;border:0;border-radius:12px;background:var(--accent);color:#fff;font:inherit;
+  font-size:17px;font-weight:800;padding:16px;cursor:pointer;transition:transform .08s,opacity .15s}
+.cta:active{transform:scale(.99)}
+.cta[disabled]{opacity:.35;pointer-events:none}
+.cta.ghost{background:transparent;color:var(--ink2);font-weight:600;font-size:14.5px;padding:10px}
+
+/* ---------- language page ---------- */
+.langpage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:32px var(--pad);min-height:100dvh;text-align:center;animation:fade .25s ease}
+.lpmark{font-size:44px;line-height:1}
+.lptitle{font-size:27px;font-weight:800;letter-spacing:-.8px;margin:10px 0 0;line-height:1.1}
+.lpprompt{font-size:16px;color:var(--ink2);margin:18px 0 0;font-weight:600}
+.lpalt{font-size:12.5px;color:var(--ink3);margin:7px 0 0;line-height:1.9;max-width:330px}
+.lplist{display:flex;flex-direction:column;gap:9px;width:100%;max-width:340px;margin-top:22px}
+.lpbtn{display:flex;align-items:baseline;justify-content:space-between;gap:12px;width:100%;
+  background:var(--card);border:1.5px solid var(--line);border-radius:var(--r);padding:15px 18px;
+  font:inherit;cursor:pointer;transition:border-color .15s,transform .08s}
+.lpbtn:active{transform:scale(.985);border-color:var(--accent)}
+.lpnative{font-size:20px;font-weight:700;line-height:1.5}
+.lpen{font-size:12.5px;color:var(--ink3);white-space:nowrap}
+.lpen em{font-style:normal;background:#FDECEA;color:var(--red);border-radius:99px;
+  padding:1px 7px;font-size:10.5px;font-weight:800;margin-left:4px}
+.lpnote{margin-top:22px;max-width:360px;font-size:12px;line-height:1.55;color:#8A5D0E;
+  background:var(--accent-soft);border:1px solid #EBD5A6;border-radius:10px;padding:11px 13px}
+
+/* ---------- seat select ---------- */
+.seatlist{display:flex;flex-direction:column;gap:11px;margin-top:16px}
+.seatcard{display:block;width:100%;text-align:left;background:var(--card);
+  border:1.5px solid var(--line);border-radius:var(--r);padding:15px 16px;font:inherit;cursor:pointer;
+  transition:border-color .15s,transform .08s}
+.seatcard:active{transform:scale(.99)}
+.seatcard.on{border-color:var(--accent);background:var(--accent-soft)}
+.sc-top{display:flex;align-items:center;gap:11px}
+.sc-ic{font-size:25px}
+.sc-nm{font-weight:800;font-size:17px;letter-spacing:-.2px}
+.sc-tg{font-size:13.5px;color:var(--ink2);margin-top:2px;line-height:1.4}
+.sc-mot{font-size:13.5px;color:var(--ink2);line-height:1.55;margin-top:10px;
+  border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- scene ---------- */
+.scene{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:18px;margin-top:16px}
+.scene h2{margin:0 0 10px;font-size:18px;font-weight:800;letter-spacing:-.3px;
+  display:flex;align-items:center;gap:9px}
+.scene p{margin:0;font-size:15px;color:var(--ink2);line-height:1.62;white-space:pre-line}
+
+/* ================= THE THREAD =================
+   One bounded card per decision. Options are sub-cards inside it. After
+   answering, the reveal unfolds from beneath the option that was picked and
+   the card closes with a "decided" rule, so it is obvious where one decision
+   ends and the next begins.                                                */
+.thread{display:flex;flex-direction:column;gap:0;padding-bottom:10px}
+
+/* --- the decision card --- */
+.dcard{background:var(--card);border:1.5px solid var(--line);border-radius:18px;
+  margin:0 0 12px;overflow:hidden;animation:rise .3s cubic-bezier(.2,.8,.3,1)}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.dcard.done{border-color:var(--line);background:#FCFBF8}
+.dcard.live{border-color:#D9CDB8;box-shadow:0 2px 14px rgba(26,22,20,.06)}
+
+.dhead{display:flex;align-items:center;gap:9px;padding:11px 15px;
+  border-bottom:1px solid var(--line);background:#FBF8F3}
+.dhead .n{width:21px;height:21px;border-radius:50%;background:var(--accent);color:#fff;
+  font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.dcard.done .dhead .n{background:#D8CFBF;color:#fff}
+.dhead .s{font-size:10.5px;font-weight:800;letter-spacing:1px;color:var(--ink3);
+  text-transform:uppercase;flex:1;line-height:1.3}
+.dhead .tick{color:var(--green);font-size:14px;font-weight:800}
+
+.dbody{padding:14px 15px 15px}
+
+/* image slot — sits above the text so the picture makes the point first */
+.media{margin:-14px -15px 13px;background:#F4F0E9;border-bottom:1px solid var(--line);
+  color:var(--ink);line-height:0}
+.media img,.media svg{display:block;width:100%;height:auto}
+.media.inline{margin:0 0 12px;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;border-bottom:1px solid var(--line)}
+.ocard .media.inline{margin:8px 0 0}
+
+.lead{font-size:14.5px;color:var(--ink2);line-height:1.58;margin:0 0 12px}
+.asker{font-size:11.5px;font-weight:800;color:var(--accent);margin:0 0 5px;
+  text-transform:uppercase;letter-spacing:.7px}
+.qtext{font-size:20px;font-weight:800;letter-spacing:-.4px;line-height:1.32;margin:0 0 14px}
+
+/* --- option sub-cards --- */
+.opts{display:flex;flex-direction:column;gap:7px}
+.ocard{display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
+  background:#FCFBF9;border:1.5px solid var(--line);border-radius:12px;padding:12px 13px;
+  font:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .08s}
+.ocard:active{transform:scale(.99)}
+.ocard.sel{border-color:var(--accent);background:var(--accent-soft)}
+.ocard .ic{font-size:20px;flex:none;width:24px;text-align:center;line-height:1.35}
+.ocard .tx{flex:1;min-width:0}
+.ocard .lb{font-size:15px;line-height:1.4;display:block}
+.ocard .nt{font-size:12px;color:var(--ink3);line-height:1.45;display:block;margin-top:3px}
+.ocard .thumb{width:54px;height:40px;border-radius:7px;overflow:hidden;flex:none;
+  background:#F0EBE2;line-height:0}
+.ocard .thumb img,.ocard .thumb svg{width:100%;height:100%;object-fit:cover;display:block}
+
+/* after answering: the pick stays prominent, the rest shrink out of the way */
+.ocard.chosen{border-color:var(--accent);background:var(--accent-soft);cursor:default}
+.ocard.chosen .lb{font-weight:700}
+.ocard.passed{opacity:.45;padding:8px 13px;cursor:default;background:transparent;
+  border-style:dashed}
+.ocard.passed .lb{font-size:13.5px}
+.ocard.passed .ic{font-size:15px}
+.chosenmark{margin-left:auto;align-self:center;color:var(--accent);font-size:15px;font-weight:800;flex:none}
+
+/* --- the reveal, unfolding from the chosen option --- */
+.unfold{margin:0 0 0 13px;padding:11px 0 0 15px;border-left:2px solid var(--accent-soft);
+  position:relative;animation:unfold .34s cubic-bezier(.2,.8,.3,1)}
+@keyframes unfold{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.unfold:before{content:"";position:absolute;left:-2px;top:0;width:15px;height:13px;
+  border-left:2px solid var(--accent-soft);border-bottom:2px solid var(--accent-soft);
+  border-bottom-left-radius:9px}
+
+.rcard{background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:13px 14px;margin:0 0 7px}
+.rcard.lead-card{border-color:#EBD5A6;background:#FFFDF8}
+.rcard p{margin:0;font-size:14.5px;line-height:1.62;color:var(--ink)}
+.rcard p + p{margin-top:9px}
+.rcard .muted{color:var(--ink2);font-size:13.5px}
+.rcard .alt{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+  font-size:13.5px;color:var(--ink2);line-height:1.58}
+.rcard .alt em{font-style:normal;font-weight:800;color:var(--ink3);font-size:10.5px;
+  letter-spacing:.8px;text-transform:uppercase;display:block;margin-bottom:4px}
+
+/* collapsed-by-default depth, so the point lands before the detail */
+.more{width:100%;display:flex;align-items:center;gap:8px;background:transparent;
+  border:1px dashed var(--line);border-radius:10px;padding:10px 13px;font:inherit;
+  font-size:13px;font-weight:700;color:var(--ink2);cursor:pointer;margin:0 0 7px;text-align:left}
+.more:hover{background:#FCFBF9}
+.more .car{margin-left:auto;color:var(--ink3);font-size:11px;transition:transform .2s}
+.more.open .car{transform:rotate(180deg)}
+
+/* --- decision terminator --- */
+.ddone{display:flex;align-items:center;gap:9px;padding:10px 15px;
+  border-top:1px solid var(--line);background:#FBF8F3;font-size:11.5px;font-weight:700;
+  color:var(--ink3);letter-spacing:.4px}
+.ddone .g{color:var(--green);font-size:13px}
+.nextcue{text-align:center;font-size:11.5px;font-weight:800;color:var(--ink3);
+  letter-spacing:1px;text-transform:uppercase;padding:2px 0 14px}
+.nextcue i{display:block;font-style:normal;font-size:15px;color:var(--accent);margin-top:3px}
+
+/* ---------- end screen ---------- */
+.fgrid{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.fchip{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--line);
+  background:var(--card);border-radius:99px;padding:9px 14px;font:inherit;font-size:14px;cursor:pointer}
+.fchip.on{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.fchip .rk{background:var(--accent);color:#fff;border-radius:50%;width:19px;height:19px;
+  font-size:11.5px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.field{margin-top:15px}
+.field label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.field select{width:100%;font:inherit;font-size:15.5px;padding:13px 14px;border:1.5px solid var(--line);
+  border-radius:12px;background:var(--card);color:var(--ink);appearance:none}
+.consent{margin-top:16px;font-size:12.5px;color:var(--ink3);line-height:1.5;
+  border-top:1px solid var(--line);padding-top:13px}
+
+/* ---------- result ---------- */
+.verdict{border-radius:var(--r);padding:20px 17px;text-align:center;border:1.5px solid;margin-top:14px}
+.verdict.safe{border-color:#A8D5BC;background:#F1F9F4}
+.verdict.difficult{border-color:#EBD5A6;background:#FDF7EA}
+.verdict.unsafe{border-color:#EFB9B2;background:#FDF2F0}
+.verdict .vi{font-size:34px}
+.verdict h2{margin:6px 0 8px;font-size:23px;font-weight:800;letter-spacing:-.5px}
+.verdict p{margin:0;font-size:14.5px;color:var(--ink2);line-height:1.58}
+.bars{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px}
+.bars > h4{margin:0 0 12px;font-size:11px;font-weight:800;letter-spacing:1px;
+  text-transform:uppercase;color:var(--ink3)}
+.bar{margin-bottom:15px}
+.bar:last-child{margin-bottom:0}
+.bar .bh{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+.bar .bh b{font-weight:700}
+.bar .bh span{color:var(--ink3);font-variant-numeric:tabular-nums}
+.bar .tr{height:7px;background:#F0EBE2;border-radius:4px;overflow:hidden}
+.bar .fl{height:100%;background:var(--accent);border-radius:4px;transition:width .6s ease}
+.bar small{display:block;color:var(--ink3);font-size:11.5px;margin-top:5px;line-height:1.45}
+.escal{margin-top:12px;border:1.5px solid #EFB9B2;background:#FDF2F0;border-radius:var(--r);padding:15px 16px}
+.escal h3{margin:0 0 6px;font-size:15.5px;font-weight:800;color:var(--red)}
+.escal p{margin:0;font-size:14px;color:var(--ink2);line-height:1.5}
+.foot{text-align:center;font-size:11.5px;color:var(--ink3);padding:22px 0 6px;line-height:1.6}
+.savenote{text-align:center;font-size:12.5px;color:var(--ink3);margin-top:14px}
+
+/* ---------- Indic typography ---------- */
+html[data-script="deva"],html[data-script="orya"],html[data-script="taml"],html[data-script="beng"]{font-size:17px}
+html[data-script="deva"] body,html[data-script="orya"] body,
+html[data-script="taml"] body,html[data-script="beng"] body{line-height:1.66}
+html[data-script="deva"] .qtext,html[data-script="orya"] .qtext,
+html[data-script="taml"] .qtext,html[data-script="beng"] .qtext{font-size:19px;line-height:1.5;letter-spacing:0}
+html[data-script="deva"] .rcard p,html[data-script="orya"] .rcard p,
+html[data-script="taml"] .rcard p,html[data-script="beng"] .rcard p{line-height:1.72}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* ============================================================
+   Twenty-Two Years v6 — the thread
+   One downward-scrolling conversation. Every answer appends an echo
+   of what you chose, then three cards: your consequence, the field
+   evidence, the lesson and the roads not taken. Earlier decisions
+   stay above you.
+   ============================================================ */
+
+var EMBEDDED_CONTENT = null;  /* build:inline */
+var EMBEDDED_I18N = null;     /* build:inline-i18n */
+var REVIEW_BUILD = false;     /* build:review-flag */
+
+var BASE=null, C=null, OVERLAYS={};
+var CANON={A:4,M:6,E:5,K:6};
+var S={
+  phase:'language', lang:'en', review:false,
+  persona:null, stepIdx:0, answers:{}, order:[], pending:null,
+  shuffle:{},           // decisionId -> [optionId,...] as shown
+  expanded:{},          // "<decisionId>:why" / ":alt" -> true
+  factors:[], demo:{}, sid:null, startedAt:null, saveMsg:''
+};
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function getPersona(id){for(var i=0;i<C.personas.length;i++)if(C.personas[i].id===id)return C.personas[i];return null}
+
+/* ---------- i18n (unchanged model from v5) ---------- */
+function walkStrings(K,cb){
+  function hit(o,k,p){if(typeof o[k]==='string'&&o[k].trim())cb(p,o[k],function(v){o[k]=v})}
+  hit(K,'title','title');hit(K,'subtitle','subtitle');
+  ['heading','body','cta'].forEach(function(k){hit(K.project,k,'project.'+k)});
+  Object.keys(K.params).forEach(function(k){hit(K.params[k],'label','params.'+k+'.label');
+    hit(K.params[k],'help','params.'+k+'.help');hit(K.params[k],'scale','params.'+k+'.scale')});
+  K.personas.forEach(function(p){['name','tagline','seat','motivation','scene'].forEach(function(k){
+    hit(p,k,'persona.'+p.id+'.'+k)});
+    if(p.askers)Object.keys(p.askers).forEach(function(d){hit(p.askers,d,'persona.'+p.id+'.asker.'+d)})});
+  Object.keys(K.decisions).forEach(function(id){
+    var d=K.decisions[id];
+    ['section','lead','asker','prompt'].forEach(function(k){hit(d,k,'d.'+id+'.'+k)});
+    d.options.forEach(function(o){
+      hit(o,'label','d.'+id+'.opt.'+o.id);
+      hit(o,'note','d.'+id+'.note.'+o.id);
+      hit(o,'result','d.'+id+'.result.'+o.id);
+      if(o.result_by_role)Object.keys(o.result_by_role).forEach(function(r){
+        hit(o.result_by_role,r,'d.'+id+'.result.'+o.id+'.'+r)})});
+    if(d.reveal){['fact','cost','lesson','alternatives'].forEach(function(k){hit(d.reveal,k,'d.'+id+'.reveal.'+k)});
+      if(d.reveal.lesson_by_role)Object.keys(d.reveal.lesson_by_role).forEach(function(r){
+        hit(d.reveal.lesson_by_role,r,'d.'+id+'.reveal.lesson.'+r)})}});
+  ['safe','difficult','unsafe'].forEach(function(k){hit(K.verdict[k],'title','verdict.'+k+'.title');
+    hit(K.verdict[k],'body','verdict.'+k+'.body')});
+  hit(K.verdict.escalation,'title','verdict.escalation.title');
+  hit(K.verdict.escalation,'body','verdict.escalation.body');
+  hit(K.endscreen,'heading','end.heading');hit(K.endscreen,'factorPrompt','end.factorPrompt');
+  K.endscreen.factors.forEach(function(f){hit(f,'label','end.factor.'+f.id)});
+  K.endscreen.demographics.forEach(function(dm){hit(dm,'label','end.demo.'+dm.id);
+    dm.options.forEach(function(_,i){if(typeof dm.options[i]==='string'&&dm.options[i].trim())
+      cb('end.demo.'+dm.id+'.o'+i,dm.options[i],function(v){dm.options[i]=v})})});
+  Object.keys(K.strings).forEach(function(k){hit(K.strings,k,'strings.'+k)});
+  hit(K.config,'consent','config.consent');
+}
+function langList(){var s=BASE||C;return (s&&s.config&&s.config.languages)||[{code:'en',name:'English',script:'latin',enabled:true}]}
+function langMeta(c){var l=langList().filter(function(x){return x.code===c});return l[0]||null}
+function offeredLangs(){return langList().filter(function(l){return S.review||l.enabled!==false})}
+function buildContent(code){
+  var n=JSON.parse(JSON.stringify(BASE));
+  if(code==='en')return n;
+  var ov=OVERLAYS[code]; if(!ov||!ov.strings)return n;
+  var ok=S.review?{draft:1,edited:1,approved:1}:{edited:1,approved:1};
+  walkStrings(n,function(p,_e,set){var e=ov.strings[p];
+    if(!e||!e.t||!String(e.t).trim())return; if(!ok[e.s||'draft'])return; set(e.t)});
+  return n;
+}
+var SCRIPT_FONT={latin:'',taml:'"Noto Sans Tamil",sans-serif',deva:'"Noto Sans Devanagari",sans-serif',
+  orya:'"Noto Sans Oriya",sans-serif',beng:'"Noto Sans Bengali",sans-serif'};
+var FONT_HREF={taml:'https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;700;800&display=swap',
+  deva:'https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;700;800&display=swap',
+  orya:'https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;700;800&display=swap',
+  beng:'https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;800&display=swap'};
+function applyScript(code){
+  var m=langMeta(code)||{script:'latin'},sc=m.script||'latin';
+  document.documentElement.setAttribute('lang',code);
+  document.documentElement.setAttribute('data-script',sc);
+  if(sc!=='latin'&&FONT_HREF[sc]&&!document.getElementById('f-'+sc)){
+    var l=document.createElement('link');l.id='f-'+sc;l.rel='stylesheet';l.href=FONT_HREF[sc];
+    document.head.appendChild(l)}
+  var st=document.getElementById('scriptcss')||(function(){var s=document.createElement('style');
+    s.id='scriptcss';document.head.appendChild(s);return s})();
+  st.textContent=sc==='latin'?'':':root{--font:'+SCRIPT_FONT[sc]+'}';
+}
+function setLang(c){S.lang=c;C=buildContent(c);applyScript(c);
+  try{localStorage.setItem('t22_lang',c)}catch(e){}}
+function loadOverlay(c){
+  if(c==='en'||OVERLAYS[c])return Promise.resolve();
+  if(EMBEDDED_I18N&&EMBEDDED_I18N[c]){OVERLAYS[c]=EMBEDDED_I18N[c];return Promise.resolve()}
+  return fetch('i18n/'+c+'.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(function(j){OVERLAYS[c]=j}).catch(function(){});
+}
+
+/* ---------- model ---------- */
+function gateOk(req){
+  if(!req||!req.length)return true;
+  for(var i=0;i<req.length;i++){var c=req[i],ok=true;
+    for(var k in c){if(!c.hasOwnProperty(k))continue;if(c[k].indexOf(S.answers[k])===-1){ok=false;break}}
+    if(ok)return true}
+  return false;
+}
+function allSteps(){var p=getPersona(S.persona);return p?p.steps:[]}
+function activeSteps(){return allSteps().filter(function(s){return gateOk(s.requires_any)})}
+function activeOptions(d){return d.options.filter(function(o){return gateOk(o.requires_any)})}
+function currentStep(){return activeSteps()[S.stepIdx]||null}
+
+/* Options are shuffled once per run per decision, then that order is kept and
+   logged, so analysis can show position did not drive the answer. */
+function shownOptions(id){
+  var d=C.decisions[id], avail=activeOptions(d);
+  if(!S.shuffle[id]){
+    var ids=avail.map(function(o){return o.id});
+    if(BASE.config.randomiseOptions!==false){
+      for(var i=ids.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=ids[i];ids[i]=ids[j];ids[j]=t}
+    }
+    S.shuffle[id]=ids;
+  }
+  var byId={};avail.forEach(function(o){byId[o.id]=o});
+  return S.shuffle[id].map(function(x){return byId[x]}).filter(Boolean);
+}
+function optionById(id,oid){var d=C.decisions[id];
+  for(var i=0;i<d.options.length;i++)if(d.options[i].id===oid)return d.options[i];return null}
+
+function score(){
+  var t={A:0,M:0,E:0,K:0};
+  for(var id in S.answers){if(!S.answers.hasOwnProperty(id))continue;
+    var o=optionById(id,S.answers[id]); if(!o)continue;
+    var fx=o.fx||{}; for(var k in t)if(fx[k])t[k]+=fx[k]}
+  return t;
+}
+function ceiling(){
+  var t={A:0,M:0,E:0,K:0};
+  allSteps().forEach(function(st){var d=C.decisions[st.id];if(!d)return;
+    var b={A:0,M:0,E:0,K:0};
+    d.options.forEach(function(o){var fx=o.fx||{};for(var k in b)if((fx[k]||0)>b[k])b[k]=fx[k]||0});
+    for(var k in t)t[k]+=b[k]});
+  return t;
+}
+function scaled(){var r=score(),c=ceiling(),o={};
+  for(var k in CANON)o[k]=c[k]>0?Math.round(r[k]/c[k]*CANON[k]):0;return o}
+function verdict(){
+  var s=scaled(),key;
+  if(s.A<=1||s.E===0||(s.A<=2&&s.E<=1))key='unsafe';
+  else if(s.A>=3&&s.E>=3)key='safe'; else key='difficult';
+  return {key:key,v:C.verdict[key],s:s,escalation:(s.A<=1&&s.E===0)};
+}
+
+/* role-aware text pickers */
+function resultText(id,oid){
+  var o=optionById(id,oid); if(!o)return '';
+  if(o.result_by_role&&o.result_by_role[S.persona])return o.result_by_role[S.persona];
+  return o.result||'';
+}
+function lessonText(id){
+  var d=C.decisions[id];
+  if(d.reveal.lesson_by_role&&d.reveal.lesson_by_role[S.persona])return d.reveal.lesson_by_role[S.persona];
+  return d.reveal.lesson||'';
+}
+function factText(id){
+  var d=C.decisions[id];
+  if(d.reveal.fact_by_role&&d.reveal.fact_by_role[S.persona])return d.reveal.fact_by_role[S.persona];
+  return d.reveal.fact||'';
+}
+function askerFor(id){
+  var p=getPersona(S.persona);
+  if(p&&p.askers&&p.askers[id])return p.askers[id];
+  return C.decisions[id].asker||'';
+}
+
+/* ---------- boot ---------- */
+function boot(){
+  var q=new URLSearchParams(location.search);
+  S.review=REVIEW_BUILD||q.get('review')==='1';
+  function go(j){BASE=j;after(q)}
+  var local=null;try{local=JSON.parse(localStorage.getItem('t22_content_override')||'null')}catch(e){}
+  if(local)return go(local);
+  if(EMBEDDED_CONTENT)return go(EMBEDDED_CONTENT);
+  fetch('content-v6.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})
+    .then(go).catch(function(){
+      fetch('content.json',{cache:'no-store'}).then(function(r){return r.json()}).then(go)
+        .catch(function(){document.getElementById('app').innerHTML=
+          '<div style="padding:40px;text-align:center;color:#9A918A">Could not load content</div>'})});
+}
+function after(q){
+  var codes=offeredLangs().map(function(l){return l.code}).filter(function(c){return c!=='en'});
+  Promise.all(codes.map(loadOverlay)).then(function(){
+    var want=q.get('lang'),remembered=false;
+    if(!want){try{want=localStorage.getItem('t22_lang');remembered=!!want}catch(e){}}
+    if(!want||!langMeta(want))want='en';
+    if(want!=='en'&&!S.review){var m=langMeta(want);if(m&&m.enabled===false){want='en';remembered=false}}
+    setLang(want);
+    S.sid='r'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+    S.startedAt=new Date().toISOString();
+    var lp=(BASE.config&&BASE.config.languagePage)||{};
+    var showLang=lp.enabled!==false&&offeredLangs().length>1&&!q.get('lang')&&!remembered;
+    S.phase=showLang?'language':'intro';
+    render();
+  });
+}
+
+/* ---------- render ---------- */
+function render(){
+  var el=document.getElementById('app'),h='';
+  if(S.phase==='language')h=vLanguage();
+  else if(S.phase==='intro')h=vIntro();
+  else if(S.phase==='seat')h=vSeat();
+  else if(S.phase==='scene')h=vScene();
+  else if(S.phase==='thread')h=vThread();
+  else if(S.phase==='end')h=vEnd();
+  else if(S.phase==='result')h=vResult();
+  el.innerHTML=h;
+  bind();
+  if(S.phase==='thread') hydrateImages();
+
+  if(S.keepScroll!=null){                       // expanding a card must not jump
+    window.scrollTo(0,S.keepScroll); S.keepScroll=null;
+  } else if(S.phase==='thread'&&S.scrollTo){
+    var t=document.getElementById(S.scrollTo);
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    S.scrollTo=null;
+  } else if(S.phase!=='thread') window.scrollTo(0,0);
+}
+
+function topbar(back){
+  var p=S.persona?getPersona(S.persona):null;
+  var steps=activeSteps();
+  var h='<div class="topbar">'+
+    (back?'<button class="tb-back" data-act="back">&larr;</button>':'')+
+    (p?'<span class="tb-seat">'+esc(p.icon)+' <small>'+esc(C.strings.yourSeat||'You are')+'</small> '+esc(p.name)+'</span>':
+        '<span style="font-weight:800;color:var(--accent);font-size:14px">⛏️ '+esc(C.title)+'</span>')+
+    '<span class="tb-sp"></span>'+
+    (S.phase==='thread'?'<span class="tb-prog">'+Math.min(S.stepIdx+1,steps.length)+' / '+steps.length+'</span>':'')+
+    '</div>';
+  if(S.phase==='thread'){
+    var pct=steps.length?Math.round(S.stepIdx/steps.length*100):0;
+    h+='<div class="pbar"><i style="width:'+pct+'%"></i></div>';
+  }
+  return h;
+}
+
+function vLanguage(){
+  var lp=(BASE.config&&BASE.config.languagePage)||{};
+  var h='<div class="langpage"><div class="lpmark">⛏️</div>'+
+    '<h1 class="lptitle">'+esc(BASE.title)+'</h1>'+
+    '<p class="lpprompt">'+esc(lp.prompt||'Choose your language')+'</p>'+
+    (lp.promptAlt?'<p class="lpalt">'+esc(lp.promptAlt)+'</p>':'')+'<div class="lplist">';
+  offeredLangs().forEach(function(l){
+    var draft=l.code!=='en';
+    h+='<button class="lpbtn" data-act="pickLang" data-id="'+esc(l.code)+'" lang="'+esc(l.code)+'">'+
+       '<span class="lpnative">'+esc(l.name)+'</span><span class="lpen">'+esc(l.enName||l.name)+
+       (draft&&S.review?' <em>Draft</em>':'')+'</span></button>'});
+  h+='</div>';
+  if(S.review)h+='<div class="lpnote">'+esc((BASE.config.review&&BASE.config.review.banner)||'')+'</div>';
+  return h+'</div>';
+}
+
+function vIntro(){
+  return topbar(false)+'<div class="screen">'+
+    '<div class="hero"><div class="mark">⛏️</div><h1>'+esc(C.title)+'</h1>'+
+    '<p class="sub">'+esc(C.subtitle)+'</p></div>'+
+    '<div class="scene"><h2>'+esc(C.project.heading)+'</h2><p>'+esc(C.project.body)+'</p></div>'+
+    '<div class="spring"></div>'+
+    '<div class="ctawrap"><button class="cta" data-act="toSeat">'+esc(C.project.cta)+'</button></div></div>';
+}
+
+function vSeat(){
+  var h='<div class="seatlist">';
+  C.personas.forEach(function(p){
+    h+='<button class="seatcard'+(S.pending===p.id?' on':'')+'" data-act="pickSeat" data-id="'+esc(p.id)+'">'+
+      '<span class="sc-top"><span class="sc-ic">'+esc(p.icon)+'</span><span>'+
+      '<span class="sc-nm">'+esc(p.name)+'</span>'+
+      '<span class="sc-tg">'+esc(p.tagline)+'</span></span></span>'+
+      (p.motivation?'<span class="sc-mot">'+esc(p.motivation)+'</span>':'')+'</button>'});
+  h+='</div>';
+  return topbar(true)+'<div class="screen">'+
+    '<h1 class="qtext" style="margin-top:16px">Which seat are you in?</h1>'+
+    '<p class="lead">Everyone here is building the same tank. You will stay in this seat for the whole build.</p>'+
+    h+'<div class="spring"></div>'+
+    '<div class="ctawrap"><button class="cta" data-act="confirmSeat"'+(S.pending?'':' disabled')+'>'+
+    esc(C.strings.continue||'Continue')+'</button></div></div>';
+}
+
+function vScene(){
+  var p=getPersona(S.persona);
+  return topbar(true)+'<div class="screen">'+
+    '<div class="scene" style="margin-top:20px"><h2>'+esc(p.icon)+' '+esc(p.name)+'</h2>'+
+    '<p>'+esc(p.scene||p.seat)+'</p></div>'+
+    '<div class="spring"></div>'+
+    '<div class="ctawrap"><button class="cta" data-act="begin">'+esc(C.strings.beginSeat||'Begin')+'</button></div></div>';
+}
+
+/* ---------- images ----------
+   Two ways to add one, and you never have to edit JSON for the common case:
+
+   1. BY FILENAME (easiest). Drop a file in img/ named after the slot and it
+      is picked up automatically:
+         img/<decision>.<ext>                     above the question
+         img/<decision>-<option>.<ext>            on the option itself
+         img/<decision>-<option>-result.<ext>     inside the consequence
+      .png .jpg .webp .svg are all tried in turn.
+
+   2. BY PATH. Put any path in content-v6.json at media.question,
+      options[].image or media.result[<option>] and it wins over the filename.
+
+   A slot with no file renders nothing at all, so images can be added one at a
+   time without anything looking broken in between.                        */
+var IMG_EXT = ['png','jpg','webp','svg'];
+
+function mediaEl(src, conv, cls, tag){
+  if(!src && !conv) return '';
+  var c = (tag==='thumb' ? 'thumb' : 'media' + (cls ? ' ' + cls : ''));
+  var el = tag==='thumb' ? 'span' : 'div';
+  // explicit path wins; otherwise hand the convention stem to the resolver
+  var attr = src ? ' data-img="'+esc(src)+'"' : ' data-stem="'+esc(conv)+'"';
+  return '<'+el+' class="'+c+'" style="display:none"'+attr+'></'+el+'>';
+}
+function media(src,cls,conv){ return mediaEl(src,conv,cls,'media') }
+function thumb(src,conv){ return mediaEl(src,conv,'','thumb') }
+
+/* Resolve every slot after render: try the explicit path, else walk the
+   extensions for the convention stem. SVG is fetched and inlined so it
+   inherits currentColor; everything else becomes an <img>. */
+function hydrateImages(){
+  var nodes=document.querySelectorAll('[data-img],[data-stem]');
+  Array.prototype.forEach.call(nodes,function(n){
+    var explicit=n.getAttribute('data-img');
+    var stem=n.getAttribute('data-stem');
+    n.removeAttribute('data-img'); n.removeAttribute('data-stem');
+    var tries = explicit ? [explicit] : IMG_EXT.map(function(e){ return stem+'.'+e });
+    var i=0;
+    (function next(){
+      if(i>=tries.length) return;            // nothing found, stays hidden
+      var url=tries[i++];
+      if(/\.svg$/i.test(url)){
+        fetch(url).then(function(r){ if(!r.ok) throw 0; return r.text() })
+          .then(function(t){ n.innerHTML=t; n.style.display='' })
+          .catch(next);
+      } else {
+        var im=new Image();
+        im.onload=function(){ n.appendChild(im); n.style.display='' };
+        im.onerror=next;
+        im.alt=''; im.loading='lazy'; im.src=url;
+      }
+    })();
+  });
+}
+
+/* ---------- the thread ---------- */
+function isOpen(id,k){ return !!S.expanded[id+':'+k] }
+
+function revealStack(id,oid){
+  var d=C.decisions[id];
+  var h='<div class="unfold" id="unf-'+esc(id)+'">';
+
+  /* 1. the consequence of what they actually picked — always open */
+  h+='<div class="rcard lead-card">'+
+       media(d.media&&d.media.result&&d.media.result[oid],'inline','img/'+id+'-'+oid+'-result')+
+       '<p>'+esc(resultText(id,oid))+'</p></div>';
+
+  /* 2 + 3. depth, folded away so the point lands before the detail */
+  var o2=isOpen(id,'why'), o3=isOpen(id,'alt');
+  h+='<button class="more'+(o2?' open':'')+'" data-act="more" data-id="'+esc(id)+'" data-k="why">'+
+       esc(C.strings.whatHappens||'What happens')+'<span class="car">▼</span></button>';
+  if(o2) h+='<div class="rcard">'+media(d.media&&d.media.fact,'inline','img/'+id+'-fact')+
+       '<p>'+esc(factText(id))+'</p>'+
+       (d.reveal.cost?'<p class="muted">'+esc(d.reveal.cost)+'</p>':'')+'</div>';
+
+  h+='<button class="more'+(o3?' open':'')+'" data-act="more" data-id="'+esc(id)+'" data-k="alt">'+
+       esc(C.strings.theLesson||'What this teaches')+'<span class="car">▼</span></button>';
+  if(o3) h+='<div class="rcard"><p>'+esc(lessonText(id))+'</p>'+
+       (d.reveal.alternatives?'<div class="alt"><em>'+esc(C.strings.otherRoutes||'The roads not taken')+
+         '</em>'+esc(d.reveal.alternatives)+'</div>':'')+'</div>';
+
+  return h+'</div>';
+}
+
+function decisionCard(id,n,total,answered){
+  var d=C.decisions[id], oid=answered?S.answers[id]:null;
+  var h='<div class="dcard '+(answered?'done':'live')+'" id="blk-'+esc(id)+'">'+
+    '<div class="dhead"><span class="n">'+n+'</span>'+
+      '<span class="s">'+esc(d.section)+'</span>'+
+      (answered?'<span class="tick">✓</span>':'')+'</div>'+
+    '<div class="dbody">'+
+      media(d.media&&d.media.question,'','img/'+id)+
+      '<p class="lead">'+esc(d.lead)+'</p>'+
+      '<p class="asker">'+esc(askerFor(id))+'</p>'+
+      '<h3 class="qtext">'+esc(d.prompt)+'</h3>'+
+      '<div class="opts">';
+
+  shownOptions(id).forEach(function(o){
+    var chosen=answered&&o.id===oid;
+    var cls=answered?(chosen?'ocard chosen':'ocard passed'):('ocard'+(S.pending===o.id?' sel':''));
+    h+='<'+(answered?'div':'button')+' class="'+cls+'"'+
+       (answered?'':' data-act="opt" data-id="'+esc(o.id)+'"')+'>'+
+       '<span class="ic">'+esc(o.icon)+'</span>'+
+       (!answered?thumb(o.image,'img/'+id+'-'+o.id):'')+
+       '<span class="tx"><span class="lb">'+esc(o.label)+'</span>'+
+       (o.note&&!answered?'<span class="nt">'+esc(o.note)+'</span>':'')+'</span>'+
+       (chosen?'<span class="chosenmark">✓</span>':'')+
+       '</'+(answered?'div':'button')+'>';
+    if(chosen) h+=revealStack(id,oid);
+  });
+
+  h+='</div></div>';
+  if(answered) h+='<div class="ddone"><span class="g">✓</span>'+
+    esc((C.strings.decided||'Decided')+' · '+n+' '+(C.strings.ofTotal||'of')+' '+total)+'</div>';
+  return h+'</div>';
+}
+
+function vThread(){
+  var steps=activeSteps(), total=steps.length, h='<div class="thread">';
+  for(var i=0;i<S.order.length;i++) h+=decisionCard(S.order[i],i+1,total,true);
+  var st=steps[S.stepIdx];
+  if(st&&!S.answers[st.id]){
+    if(S.order.length) h+='<div class="nextcue">'+esc(C.strings.nextDecision||'Next decision')+
+      '<i>↓</i></div>';
+    h+=decisionCard(st.id,S.order.length+1,total,false);
+  }
+  h+='</div>';
+  var last=S.stepIdx>=total-1;
+  var label=S.pending?(last?(C.strings.seeResult||'See what you built'):(C.strings.nextQuestion||'Next'))
+                     :(C.strings.pickOne||'Choose one to continue');
+  return topbar(true)+'<div class="screen">'+h+
+    '<div class="ctawrap"><button class="cta" data-act="confirm"'+(S.pending?'':' disabled')+'>'+
+    esc(label)+'</button></div></div>';
+}
+
+function vEnd(){
+  var e=C.endscreen,h='<div class="fgrid">';
+  e.factors.forEach(function(f){var rk=S.factors.indexOf(f.id);
+    h+='<button class="fchip'+(rk>-1?' on':'')+'" data-act="factor" data-id="'+esc(f.id)+'">'+
+      (rk>-1?'<span class="rk">'+(rk+1)+'</span>':'<span>'+esc(f.icon)+'</span>')+
+      '<span>'+esc(f.label)+'</span></button>'});
+  h+='</div>';
+  e.demographics.forEach(function(dm,j){
+    var canon=BASE.endscreen.demographics[j]?BASE.endscreen.demographics[j].options:dm.options;
+    var sel='<select data-act="demo" data-id="'+esc(dm.id)+'"><option value="">—</option>';
+    dm.options.forEach(function(lbl,k){var val=canon[k]!=null?canon[k]:lbl;
+      sel+='<option value="'+esc(val)+'"'+(S.demo[dm.id]===val?' selected':'')+'>'+esc(lbl)+'</option>'});
+    h+='<div class="field"><label>'+esc(dm.label)+'</label>'+sel+'</select></div>'});
+  return topbar(true)+'<div class="screen">'+
+    '<h1 class="qtext" style="margin-top:16px">'+esc(e.heading)+'</h1>'+
+    '<p class="lead">'+esc(e.factorPrompt)+'</p>'+h+
+    '<div class="consent">'+esc(C.config.consent)+'</div>'+
+    '<div class="ctawrap"><button class="cta" data-act="finish">'+esc(C.strings.submit||'Finish')+'</button></div></div>';
+}
+
+function vResult(){
+  var V=verdict(),s=V.s,p=getPersona(S.persona);
+  var h='<div class="verdict '+V.key+'"><div class="vi">'+esc(V.v.icon)+'</div>'+
+    '<h2>'+esc(V.v.title)+'</h2><p>'+esc(V.v.body)+'</p></div>';
+  if(V.escalation)h+='<div class="escal"><h3>'+esc(C.verdict.escalation.title)+'</h3>'+
+    '<p>'+esc(C.verdict.escalation.body)+'</p></div>';
+  h+='<div class="bars"><h4>'+esc(C.strings.scoreHelp||'What the four numbers mean')+'</h4>';
+  ['A','E','M','K'].forEach(function(k){
+    var pa=C.params[k],pct=Math.round(s[k]/CANON[k]*100);
+    h+='<div class="bar"><div class="bh"><b>'+esc(pa.label)+'</b><span>'+s[k]+' / '+CANON[k]+'</span></div>'+
+      '<div class="tr"><div class="fl" style="width:'+pct+'%"></div></div>'+
+      '<small>'+esc(pa.scale||pa.help)+'</small></div>'});
+  h+='</div><div class="savenote">'+esc(S.saveMsg)+'</div>'+
+    '<div class="ctawrap"><button class="cta" data-act="restart">'+esc(C.strings.restart||'Play another seat')+'</button></div>'+
+    '<div class="foot">'+esc(C.license)+' &middot; v'+esc(C.version)+'</div>';
+  return topbar(false)+'<div class="screen">'+
+    '<div class="hero" style="padding-top:4px"><div class="mark">'+esc(p.icon)+'</div>'+
+    '<h1 style="font-size:21px">'+esc(p.name)+'</h1></div>'+h+'</div>';
+}
+
+/* ---------- events ---------- */
+function bind(){
+  var root=document.getElementById('app');
+  root.onclick=function(ev){
+    var t=ev.target.closest('[data-act]'); if(!t)return;
+    var a=t.getAttribute('data-act'),id=t.getAttribute('data-id');
+
+    if(a==='pickLang')loadOverlay(id).then(function(){setLang(id);S.phase='intro';render()});
+    else if(a==='toSeat'){S.phase='seat';S.pending=null;render()}
+    else if(a==='pickSeat'){S.pending=id;render()}
+    else if(a==='confirmSeat'){
+      S.persona=S.pending;S.pending=null;S.stepIdx=0;S.answers={};S.order=[];S.shuffle={};
+      S.phase='scene';render()}
+    else if(a==='begin'){S.phase='thread';render()}
+    else if(a==='opt'){S.pending=id;render()}
+    else if(a==='more'){
+      var k=id+':'+t.getAttribute('data-k');
+      S.expanded[k]=!S.expanded[k];
+      S.keepScroll=window.scrollY; render();
+    }
+    else if(a==='confirm'){
+      var st=currentStep(); if(!st)return;
+      S.answers[st.id]=S.pending;
+      if(S.order.indexOf(st.id)===-1)S.order.push(st.id);
+      S.pending=null;
+      var steps=activeSteps();
+      if(S.stepIdx>=steps.length-1){S.phase='end';render()}
+      // land on the consequence of what they just picked, not the top of the card
+      else{S.stepIdx++;S.scrollTo='unf-'+st.id;render()}}
+    else if(a==='factor'){var i=S.factors.indexOf(id);
+      if(i>-1)S.factors.splice(i,1); else if(S.factors.length<3)S.factors.push(id);
+      render()}
+    else if(a==='finish')finish();
+    else if(a==='restart'){S.phase='seat';S.persona=null;S.pending=null;S.stepIdx=0;
+      S.answers={};S.order=[];S.shuffle={};S.factors=[];S.demo={};S.saveMsg='';
+      S.sid='r'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+      S.startedAt=new Date().toISOString();render()}
+    else if(a==='back')goBack();
+  };
+  root.onchange=function(ev){var t=ev.target.closest('[data-act="demo"]');
+    if(t)S.demo[t.getAttribute('data-id')]=t.value};
+}
+function goBack(){
+  if(S.phase==='seat'){S.phase='intro';S.pending=null}
+  else if(S.phase==='scene'){S.phase='seat';S.pending=S.persona;S.persona=null}
+  else if(S.phase==='thread'){
+    if(S.stepIdx===0){S.phase='scene'}
+    else{S.stepIdx--;var last=S.order.pop();if(last){S.pending=S.answers[last];delete S.answers[last]}}}
+  else if(S.phase==='end'){S.phase='thread';var steps=activeSteps();S.stepIdx=Math.max(0,steps.length-1);
+    var last=S.order.pop();if(last){S.pending=S.answers[last];delete S.answers[last]}}
+  else if(S.phase==='intro'){var lp=(BASE.config&&BASE.config.languagePage)||{};
+    if(lp.enabled!==false&&offeredLangs().length>1)S.phase='language'; else return}
+  render();
+}
+
+/* ---------- capture ---------- */
+function buildRow(){
+  var V=verdict(),raw=score(),cap=ceiling();
+  var row={ts:new Date().toISOString(),started:S.startedAt,sid:S.sid,version:C.version,
+    persona:S.persona,lang:S.lang,lang_review:S.review?1:0,device_lang:(navigator.language||''),
+    steps_seen:S.order.length,last_step:S.order.length?S.order[S.order.length-1]:'',
+    outcome:V.key,escalation:V.escalation?1:0,
+    raw_A:raw.A,raw_M:raw.M,raw_E:raw.E,raw_K:raw.K,
+    cap_A:cap.A,cap_M:cap.M,cap_E:cap.E,cap_K:cap.K,
+    sc_A:V.s.A,sc_M:V.s.M,sc_E:V.s.E,sc_K:V.s.K,
+    factor_1:S.factors[0]||'',factor_2:S.factors[1]||'',factor_3:S.factors[2]||''};
+  C.endscreen.demographics.forEach(function(dm){row['demo_'+dm.id]=S.demo[dm.id]||''});
+  for(var id in C.decisions){ if(!C.decisions.hasOwnProperty(id))continue;
+    row['q_'+id]=S.answers[id]||'';
+    // what position the chosen option occupied on screen, so analysis can show
+    // that shuffled order did not drive the answer
+    row['pos_'+id]=(S.shuffle[id]&&S.answers[id])?(S.shuffle[id].indexOf(S.answers[id])+1):'';
+  }
+  return row;
+}
+function finish(){
+  var row=buildRow();
+  try{var a=JSON.parse(localStorage.getItem('t22_runs')||'[]');a.push(row);
+    localStorage.setItem('t22_runs',JSON.stringify(a.slice(-500)))}catch(e){}
+  S.saveMsg=C.strings.sending||'Saving…'; S.phase='result'; render();
+  var url=(BASE.config&&BASE.config.endpoint)||'';
+  if(!url||BASE.config.captureEnabled===false){
+    S.saveMsg='Stored on this device.';
+    var n=document.querySelector('.savenote'); if(n)n.textContent=S.saveMsg; return}
+  var b=new URLSearchParams(); b.set('action','run'); b.set('payload',JSON.stringify(row));
+  fetch(url,{method:'POST',body:b,mode:'no-cors'})
+    .then(function(){S.saveMsg=C.strings.sent||'Saved. Thank you.'})
+    .catch(function(){S.saveMsg=C.strings.sendFail||'Stored on this device.'})
+    .then(function(){var n=document.querySelector('.savenote');if(n)n.textContent=S.saveMsg});
+}
+
+boot();
+</script>
+</body>
+</html>

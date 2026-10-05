@@ -1,0 +1,122 @@
+{
+  "roleVoiced": {
+    "vent": {
+      "options": [
+        {
+          "id": "none",
+          "result_by_role": {
+            "owner": "You skipped it. Nothing stands up on your roofline, nobody on your street has one, and you were told you would not notice the smell anyway. That last part is broadly true. The tank still makes gas and now keeps it, with hydrogen sulphide sitting low over the sludge and methane gathering up under the slab, and taking the cover off does not clear either.",
+            "architect": "You left it off the sheet. The front elevation stays clean and no client will ever ask why a pipe is missing from a drawing. The plumber will not add what you did not draw. The tank keeps its own air from the day it is closed: heavy hydrogen sulphide low down near the sludge, light methane up under the concrete.",
+            "engineer": "You waived it. IS 2470 asks for a vent, and you are the only person on this job with the standing to say it can go, so it has gone with your signature on the sheet. Nothing here will fail any test anybody applies. The tank will hold hydrogen sulphide low over the sludge and methane up under the slab for as long as it stands.",
+            "contractor": "You left the pipe out. Two or three thousand rupees stays in your pocket, on an item the owner cannot locate inside your lump sum and no inspector comes looking for. What goes to handover is a sealed box that makes its own atmosphere, hydrogen sulphide lying low over the sludge and methane collecting at the top.",
+            "maistry": "You did not run it. Nobody asked for one and the tank works without it. You have also been called back to open tanks, so you know what comes up when the cover lifts, and you know the air at the bottom is not the air at the top. Hydrogen sulphide stays low over the sludge. Methane sits up under the slab. Neither of them leaves because the lid is off."
+          }
+        },
+        {
+          "id": "short",
+          "result_by_role": {
+            "owner": "You let them run a short one and tuck it behind the parapet wall at the edge of the roof, so nothing shows from the road and nobody asks you about it. Gas has a route out now, which is a real improvement on none. Behind that wall the air does not move, so the pipe does much less than it looks like it is doing, and the painter in year twelve will find a pipe nobody can explain.",
+            "architect": "You carried it up and hid it behind the parapet. That compromise is yours, and it is the one everybody in the profession reaches for, because it keeps the elevation and appears to keep the function. It keeps the elevation. The mouth now sits in a pocket of still air the wall holds, and a pipe that serves no visible purpose is the first thing capped in the next renovation.",
+            "engineer": "You passed the short vent. There is a line on the drawing that says vent and this satisfies it, so you can sign. Behind a parapet the mouth opens into dead air and moves a fraction of what the standard assumes. You are the last person on this chain who could have asked for the height, and the drawing records only that a vent exists.",
+            "contractor": "You bought the pipe and ran it short, behind the parapet where the owner wanted it out of sight. A few hundred rupees of PVC and half an hour of your plumber. The tank breathes a little. Nobody will call you back about it either way, and the next man working on that roof will not know what the pipe is for.",
+            "maistry": "You took it up behind the parapet because that is where the owner wanted it kept out of sight. There is a pipe now, which is more than most tanks in this layout have. Stand up there and see whether anything moves behind that wall. A vent in still air is just a pipe, and you have smelled what it is supposed to be carrying away."
+          }
+        },
+        {
+          "id": "proper",
+          "result_by_role": {
+            "owner": "You let it go to full height, above the roof line and away from the windows, with a cowl on top so rain and nests cannot block the mouth. There is now an object on your roofline that your neighbours can see, and at least one of them will ask what it is. The tank breathes all day instead of holding what it makes, and that is most of what separates it from a confined space.",
+            "architect": "You took it above the roof line and found a place for it on the elevation instead of hiding it behind the parapet. It cost you a detail and probably one conversation with the client about how it looks. The tank breathes continuously now, and the pipe is legible enough that nobody in a later renovation mistakes it for leftover plumbing and caps it.",
+            "engineer": "You held the line. Full height and clear of the windows, with a cowl so the mouth stays open. It is the cheapest item you will ever insist on and the only thing on this sheet that acts directly on somebody's lungs. Dimension the height on the drawing, because the man running the pipe builds what is dimensioned and ignores what is merely intended.",
+            "contractor": "You ran it properly out of a lump sum, so the pipe came out of your own margin. Two to three thousand rupees that no inspector records and no client thanks you for. Your crew has now learned that a vent is part of a tank on your sites, and that habit travels to the next job, which is worth more than the pipe.",
+            "maistry": "You took it to full height with a cowl on the mouth, above the roofline and away from the windows. You are the one man on this site who has had a cover off a tank in use, so you already know what you have just prevented. The tank breathes from now on. Somebody will stand over it with a hose in twenty years and never know your name."
+          }
+        }
+      ],
+      "reveal": {
+        "lesson_by_role": {
+          "owner": "Nobody in your street has a vent pipe, so the absence of one looks normal and the presence of one looks like a mistake somebody made. That is the whole of why this gets argued about. The pipe is the cheapest life-safety item in your build, and the only reason it is hard to agree to is that it can be seen from the road.",
+          "architect": "Hidden behind a parapet is where this detail goes to die, and it is a designer who puts it there. A vent works on height and on an open mouth, so a pipe that ends in still air has kept the drawing honest and nothing else. If it cannot be explained by somebody standing in the yard, it gets capped, and the tank goes back to holding its own air.",
+          "engineer": "You will be asked to waive this more often than anything else in IS 2470, and the request always comes from people who will not be standing over the open cover. There is no inspection after yours. Whatever you release here is released for the life of the tank, and the drawing keeps no note of the conversation.",
+          "contractor": "The vent is the smallest line in the job and the easiest to lose inside a lump sum, so it disappears without anybody deciding to remove it. Nothing in the handover checks for it. Quote it as its own named line and losing it becomes a decision somebody has to make out loud, which is usually enough.",
+          "maistry": "You have smelled the inside of a tank and the men above you have not, which is why this pipe is worth less to them than it is to you. Hydrogen sulphide takes your nose out within seconds at the strength that kills, so the warning you have always relied on stops before the danger does. People standing at the edge afterwards say it did not smell of much."
+        }
+      }
+    },
+    "tanktype": {
+      "options": [
+        {
+          "id": "rings",
+          "result_by_role": {
+            "owner": "You went with precast rings, cast at a yard and dropped in by lorry, because they are the cheapest serious option and because your brother-in-law has them and nothing has gone wrong at his house yet. Stacked, sealed and done by evening. The width of a ring now sets how big the hole in the top can be, and that width is narrower than a man needs to work a hose and a rake through.",
+            "architect": "You wrote precast rings on the sheet. It is what gets built in this belt anyway, and it keeps sanitation out of the cost conversation you are already losing. You will not be on site when they are stacked. The ring diameter caps the opening, so whatever your junior draws on top of this tank is already limited by one word you typed months earlier.",
+            "engineer": "Rings came to you for sign-off. You did not choose them; somebody had already settled it, and your signature is what the sheet needed to move on. Stacked and sealed rings are not structurally wrong, so there is nothing here you could reasonably fail. The diameter you have just approved is the ceiling on every opening anybody details above it.",
+            "contractor": "You put rings in. Your crew stacks and seals them and the pit is closed by evening, which is a day of labour you keep and a week of mason wages you never pay. The hole in the top can only be as wide as a ring, so you have also answered the question about openings before anyone gets round to asking you it.",
+            "maistry": "The rings were already on the lorry when you reached site, so rings is what went in. Four men and half a day, with no shuttering to strike. You have built about forty of these, so you know how the top ends up: a hole the width the ring allows, and a man's shoulders are the thing that fits through it."
+          }
+        },
+        {
+          "id": "well",
+          "result_by_role": {
+            "owner": "You had it lined in stone, the way the well at your father's place was built. It is roomier than rings and it will outlast the house. Stone joints pass water in both directions, so this will behave more like an open pit than a sealed tank, and what the tank holds reaches the ground around it.",
+            "architect": "You specified stone lining. It reads well on a drawing and it suits a site with a mason who can still do the work, and nobody will ever photograph it. Stone joints pass water both ways, so the tank you have drawn as sealed is not sealed. The plaster coat that would fix that is a note you have not written.",
+            "engineer": "A stone-lined tank has arrived for your stamp. The structure is not the question; walling like that stands for a century. What you are being asked to approve is a tank that leaks at every joint, described on the sheet by two letters and a rectangle. If you want it watertight, the note has to come from you, because nobody downstream of your signature will add one.",
+            "contractor": "Stone lining means a mason, extra days, and wages you are paying while the number you quoted stays where it is. You get a roomier box than rings and an owner who likes the sound of it. It will seep at the joints, which nobody will ever see and nobody will ever put on you.",
+            "maistry": "You built it in stone, because that is work your hands know and the stone was lying on site. It is wider inside than rings, so a man can actually move around in there. That is also exactly what will make it the easy tank to send somebody down into, long after you have stopped working."
+          }
+        },
+        {
+          "id": "brick",
+          "result_by_role": {
+            "owner": "You paid for brick, plastered smooth on the inside. A step up from rings in money and in the shape you get, with less sludge clinging to the walls. It is still one compartment, so the water leaving it carries solids out to wherever you have sent them, and that is the thing that silts up and brings the truck back sooner.",
+            "architect": "You drew brick with an internal plaster finish, a sensible middle specification nobody will question at any stage. One compartment, which is what a single rectangle on a drawing always turns into. The dividing wall that would change how this tank behaves is one line, and you did not draw it.",
+            "engineer": "Brick with smooth internal plaster has come up for your approval and there is nothing in it to object to. It is sound, it is watertight if the plaster is actually done, and it is a single compartment, which is not what IS 2470 describes. There is no field on this sheet for chambers. Approving one is the same act as approving two.",
+            "contractor": "Brick and internal plaster. A few extra days of a mason and his helper, a cost you can show the owner line by line, and a tank your own crew can build without hiring anybody new. One compartment, so solids go out with the water, and the pit you run that water into is the part that silts up first.",
+            "maistry": "You built it in brick and plastered the inside smooth, which is the version you would rather be called back to open. Sludge does not cling to a plastered wall the way it clings to rough block. It is one chamber, so the muck travels out to the pit the water soaks away into, and that pit is the one somebody ends up digging by hand."
+          }
+        },
+        {
+          "id": "twochamber",
+          "result_by_role": {
+            "owner": "You paid for two chambers with a wall between them that keeps the floating scum back from the outlet. That is ₹12,000 to ₹20,000 more than rings, it is what the standard asks for, and it is almost never built. Your relatives will tell you it was unnecessary. Solids now stay in the tank instead of silting up the pit outside, which roughly halves how often anybody opens it.",
+            "architect": "You specified two chambers with a dividing wall, so the drawing now asks for something the site does not build out of habit. That is also the risk. What is unusual on paper gets simplified on the ground, and you will not be there the morning that wall would have gone up. Say it out loud to the maistry or it becomes one chamber.",
+            "engineer": "Two chambers have come to you for sign-off, which almost never happens. You are being asked to approve the only version of this tank that does what IS 2470 actually describes, so sign it and keep the sheet. Your signature does not build the wall. Dimension its position and the pipe levels in and out, because the man casting it builds what is dimensioned and leaves out what is only intended.",
+            "contractor": "You built two chambers. That is an extra wall and a slower week, out of a price you quoted before you had thought about it. You will not get the money back, and the owner cannot see what he got for it. The tank will need emptying about half as often, which is the only part of this that ever reaches the man with the hose.",
+            "maistry": "You put the dividing wall in yourself, with the lorry waiting and nobody asking you for it. Half a day and some brick off the owner's stack. Solids stay in the first chamber now, so the soak pit lasts and the tank gets opened half as often. You are the only person on this job who knew that was worth doing."
+          }
+        }
+      ],
+      "reveal": {
+        "lesson_by_role": {
+          "owner": "Price and what your relatives already have are the two things that actually decide this, and they usually point the same way. Neither of them asks what shape the tank leaves behind. The material matters far less than the size of hole it allows on top and whether solids leave the tank, and a quote mentions neither.",
+          "architect": "What you write here sets the ceiling on every detail above it, and you will not see any of it built. A ring diameter caps the cover size. One compartment pushes solids out to whatever pit the water soaks away into. Both of those are settled by the word you put beside ST, months before anybody stands on the slab, and nobody on site will read it as a decision you made.",
+          "engineer": "You are not choosing this tank. One arrives on a sheet and you are asked whether it can be signed, and almost any of them can, because the structure is never the problem. The sheet gives you no box for chambers, cover size or depth. Yours is the last technical signature this tank will ever carry, so what you do not write on it does not get built.",
+          "contractor": "Every version of this tank that is quicker for your crew is also harder for the man who has to open it, and those two facts never come up in the same conversation. Rings close a pit in a day. A dividing wall costs you a week you have already priced. Nobody inspects the difference, so the market only pays you for one side of it.",
+          "maistry": "The tank you build is usually the tank the lorry delivered, and that was settled by somebody who is not on site today. You are also the only man here who has opened one of these after twenty years of use. What you know about how a tank empties is the one piece of information on this job that nobody ever asks for."
+        }
+      }
+    }
+  },
+  "patch": {
+    "openings": {
+      "options": [
+        {
+          "id": "flush",
+          "result_append": "A slab sealed right across also keeps everything the tank makes. Hydrogen sulphide pools low over the sludge and methane collects at the top, under the concrete, and the man who knocks a hole through that slab is leaning over both of them. Breaking it open does not clear either one."
+        },
+        {
+          "id": "small",
+          "result_append": "An opening that size lets almost no air through either. The tank holds hydrogen sulphide low over the sludge and methane up under the slab, and lifting one small cover does not shift them in the few minutes before somebody is told to go down."
+        }
+      ]
+    },
+    "slab_call": {
+      "options": [
+        {
+          "id": "flush",
+          "result_append": "A sealed slab also keeps every gas the tank makes. Methane gathers at the top, right under the concrete you are casting tomorrow, and hydrogen sulphide lies low over the sludge. The hole somebody knocks through that slab in twenty years will not vent either of them."
+        }
+      ]
+    }
+  }
+}

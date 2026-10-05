@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty-Two Years — image slots</title>
+<style>
+:root{color-scheme:light;--bg:#F7F5F1;--card:#fff;--ink:#1A1614;--ink2:#5C534C;--ink3:#9A918A;
+  --line:#E3DCD2;--accent:#C8871B;--accent-soft:#FDF4E3;--green:#2E7D4F;--red:#C0392B;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:14.5px;line-height:1.5;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 20px;position:sticky;top:0;z-index:5}
+header h1{margin:0;font-size:18px}
+header p{margin:5px 0 0;color:var(--ink2);font-size:13px}
+.stats{display:flex;gap:9px;margin-top:11px;flex-wrap:wrap}
+.pill{border-radius:99px;padding:4px 12px;font-size:12.5px;font-weight:700}
+.pill.got{background:#EAF5EE;color:var(--green)}
+.pill.need{background:#FDF4E3;color:#8A5D0E}
+main{max-width:1000px;margin:0 auto;padding:20px}
+.how{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:20px}
+.how h2{margin:0 0 10px;font-size:15px}
+.how ol{margin:0;padding-left:20px}
+.how li{margin-bottom:7px;color:var(--ink2)}
+.how code{font-family:var(--mono);font-size:12.5px;background:#F0EBE2;padding:2px 6px;border-radius:4px;color:var(--ink)}
+.grp{margin-bottom:26px}
+.grp > h3{margin:0 0 4px;font-size:15px;display:flex;align-items:center;gap:9px}
+.grp > p{margin:0 0 11px;color:var(--ink3);font-size:12.5px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:11px}
+.slot{background:#fff;border:1.5px solid var(--line);border-radius:11px;overflow:hidden}
+.slot.got{border-color:#A8D5BC}
+.shot{height:112px;background:#F4F0E9;display:flex;align-items:center;justify-content:center;
+  color:var(--ink3);font-size:11.5px;border-bottom:1px solid var(--line);overflow:hidden}
+.shot img,.shot svg{max-width:100%;max-height:112px;display:block}
+.meta{padding:10px 12px}
+.meta .k{font-size:10.5px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--ink3)}
+.meta .fn{font-family:var(--mono);font-size:12px;margin-top:4px;word-break:break-all;
+  background:#F7F5F1;padding:5px 7px;border-radius:5px;cursor:pointer;border:1px solid var(--line)}
+.meta .fn:hover{background:var(--accent-soft);border-color:var(--accent)}
+.meta .d{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.45}
+.err{background:#FDECEA;color:var(--red);padding:14px;border-radius:10px;margin:20px}
+.note{font-size:12.5px;color:var(--ink3);margin-top:7px}
+.copied{position:fixed;left:50%;transform:translateX(-50%);bottom:26px;background:var(--ink);
+  color:#fff;padding:9px 16px;border-radius:99px;font-size:13px;font-weight:600;z-index:9}
+</style>
+</head>
+<body>
+<header>
+  <h1>⛏️ Image slots</h1>
+  <p>Every place a picture can go. Name the file as shown, drop it in <code>img/</code>, reload the game.</p>
+  <div class="stats" id="stats"></div>
+</header>
+<main id="main"><p style="color:#9A918A">Loading…</p></main>
+<script>
+var EXT=['png','jpg','webp','svg'];
+var C=null;
+
+var SPATIAL={
+  location:'Where the tank sits on the plot',
+  tanktype:'The four tank constructions, in section',
+  openings:'Sealed slab vs one small hole vs two covers',
+  slab_call:'The same top, seen on pour day',
+  vent:'No pipe, hidden pipe, full-height pipe',
+  effluent:'Street drain, soak pit, dispersion trench',
+  depth:'Tank proportions and hose reach',
+  truck_access:'Truck, gate width, turning space',
+  sizing:'Tank volume against household size'
+};
+
+function boot(){
+  fetch('content-v6.json',{cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw 0; return r.json() })
+    .then(start)
+    .catch(function(){
+      document.getElementById('main').innerHTML='<div class="err">'+
+        '<b>Could not read content-v6.json.</b><br>'+
+        'If you opened this file by double-clicking it, the browser blocks reading '+
+        'the other files next to it. Put both on your site and open it from there, '+
+        'or run a local server in this folder.</div>';
+    });
+}
+
+function start(j){
+  C=j;
+  var html='<div class="how"><h2>How to add a picture</h2><ol>'+
+    '<li>Make a folder called <code>img</code> next to <code>index.html</code>.</li>'+
+    '<li>Save your picture with the exact filename shown on the card below. '+
+      'Click any filename to copy it.</li>'+
+    '<li>Reload the game. That is all — nothing to edit.</li>'+
+    '</ol><p class="note">Any of <code>.png</code> <code>.jpg</code> '+
+    '<code>.webp</code> <code>.svg</code> works; the name is what matters. '+
+    'An empty slot shows nothing at all, so you can add them one at a time. '+
+    'Landscape 3:2 reads best — around 840×560.</p></div>';
+
+  var got=0,total=0,out='';
+  Object.keys(SPATIAL).forEach(function(id){
+    var d=C.decisions[id]; if(!d) return;
+    out+='<div class="grp"><h3>'+esc(d.prompt)+'</h3><p>'+esc(SPATIAL[id])+'</p><div class="slots">';
+    out+=slot(id,'img/'+id,'Above the question','Sets the scene before any text.');
+    d.options.forEach(function(o){
+      out+=slot(id,'img/'+id+'-'+o.id,'Option · '+o.label,'Thumbnail on the option itself.');
+    });
+    d.options.forEach(function(o){
+      out+=slot(id,'img/'+id+'-'+o.id+'-result','After choosing · '+o.label,
+        'Shown inside the consequence card.');
+    });
+    out+='</div></div>';
+  });
+  document.getElementById('main').innerHTML=html+out;
+  probeAll();
+}
+
+function slot(id,stem,kind,desc){
+  total0++;
+  return '<div class="slot" data-stem="'+esc(stem)+'">'+
+    '<div class="shot">not added yet</div>'+
+    '<div class="meta"><div class="k">'+esc(kind)+'</div>'+
+    '<div class="fn" onclick="copyName(this)">'+esc(stem)+'.png</div>'+
+    '<div class="d">'+esc(desc)+'</div></div></div>';
+}
+var total0=0;
+
+/* try each extension; first that loads wins */
+function probeAll(){
+  var nodes=document.querySelectorAll('.slot');
+  var found=0,done=0,total=nodes.length;
+  Array.prototype.forEach.call(nodes,function(n){
+    var stem=n.getAttribute('data-stem'),i=0;
+    (function next(){
+      if(i>=EXT.length){ tally(); return }
+      var url=stem+'.'+EXT[i++];
+      if(/svg$/.test(url)){
+        fetch(url).then(function(r){ if(!r.ok) throw 0; return r.text() })
+          .then(function(t){ n.querySelector('.shot').innerHTML=t;
+            n.className='slot got'; n.querySelector('.fn').textContent=url; found++; tally() })
+          .catch(next);
+      } else {
+        var im=new Image();
+        im.onload=function(){ var s=n.querySelector('.shot'); s.innerHTML=''; s.appendChild(im);
+          n.className='slot got'; n.querySelector('.fn').textContent=url; found++; tally() };
+        im.onerror=next; im.src=url;
+      }
+    })();
+  });
+  function tally(){
+    if(++done<total) return;
+    document.getElementById('stats').innerHTML=
+      '<span class="pill got">'+found+' added</span>'+
+      '<span class="pill need">'+(total-found)+' still empty</span>';
+  }
+}
+
+function copyName(el){
+  var t=el.textContent;
+  if(navigator.clipboard) navigator.clipboard.writeText(t).then(flash).catch(flash);
+  else flash();
+  function flash(){
+    var d=document.createElement('div'); d.className='copied'; d.textContent='Copied  '+t;
+    document.body.appendChild(d); setTimeout(function(){ d.remove() },1600);
+  }
+}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+boot();
+</script>
+</body>
+</html>
